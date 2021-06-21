@@ -17,6 +17,7 @@ namespace LP
     {
         #region Variables
         public static string PoolApiURL = "https://liberty-pool.com/api/pool/stats";
+        public static string XMRpriceApiURL = "https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=BTC,USD,EUR";
         public static string WalletStatsApiUrl = "https://liberty-pool.com/api/miner/" + Settings.Default.Wallet + "/stats";
         public static string xmrigPath = Path.Combine(Application.StartupPath, "xmrig.exe");
         public static string configPath = Path.Combine(Application.StartupPath, "config.json");
@@ -150,10 +151,9 @@ namespace LP
             dynamic p = pool.pool_statistics;
             Console.WriteLine(result.PoolHashrate);
             //
-            dynamic xmrEur = JObject.Parse(DownloadString(PoolApiURL));
-            dynamic p = pool.pool_statistics;
+            dynamic xmr = JObject.Parse(DownloadString(XMRpriceApiURL));
             //
-            result.xmrPrice = p.miners;
+            result.xmrPrice = xmr.EUR + "€ " + xmr.USD + "$ ";
             result.TotalPayments = p.totalPayments;
             result.BlocksFound = p.totalAltBlocksFound + p.totalBlocksFound;
             result.TotalMinersPaid = p.totalMinersPaid;

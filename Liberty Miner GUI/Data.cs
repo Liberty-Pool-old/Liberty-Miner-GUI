@@ -21,7 +21,7 @@ namespace LP.Data
     {
         public string PoolHashrate;
         //public string WorldXMRHashrate;
-        public int xmrPrice;
+        public string xmrPrice;
         public int TotalPayments;
         public int BlocksFound;
         public string TotalMinersPaid;

@@ -24,7 +24,7 @@ namespace LibertyMinerGUI
         {
             PoolData poolData = LP_Functionality.FetchPoolData();
             BlocksFLbl.Text = poolData.BlocksFound.ToString();
-            xmrPriceLbl.Text = poolData.CurrentMiners.ToString();
+            xmrPriceLbl.Text = poolData.xmrPrice.ToString();
             TotalPaymentsLbl.Text = poolData.TotalPayments.ToString();
             //XmrEffortLbl.Text = poolData.;
             PoolHashLbl.Text = poolData.PoolHashrate;
