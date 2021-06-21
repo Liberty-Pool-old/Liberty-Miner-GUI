@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LibertyMinerGUI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Wallet" Type="System.String" Scope="User">
+      <Value Profile="(Default)">46EpybCgNjC9kkbLr8sE1SMbhdGzCVXPLW9fKDh3teNEPH5gJ8QNKvBKFffFr2aUtocWjwspK5nrkA3uK48uiMD5SWfaxLH</Value>
+    </Setting>
+    <Setting Name="Worker" Type="System.String" Scope="User">
+      <Value Profile="(Default)">A good boy</Value>
+    </Setting>
+    <Setting Name="Coin" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="Cpu" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="PauseOnBattery" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="RunOnStartup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
