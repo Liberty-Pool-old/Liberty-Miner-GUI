@@ -42,15 +42,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lbltitle = new System.Windows.Forms.Label();
             this.pnlFormLoader = new System.Windows.Forms.Panel();
-            this.xmrPrice_DisplayPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.xmrPrice_DisplayPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -184,6 +178,7 @@
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(248, 190);
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             this.panel2.TabIndex = 0;
             // 
             // label2
@@ -221,6 +216,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             // 
             // button1
             // 
@@ -247,6 +243,7 @@
             this.lbltitle.Name = "lbltitle";
             this.lbltitle.Size = new System.Drawing.Size(195, 39);
             this.lbltitle.TabIndex = 10;
+            this.lbltitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbltitle_MouseDown);
             this.lbltitle.Text = "Dashboard";
             // 
             // pnlFormLoader
@@ -256,54 +253,8 @@
             this.pnlFormLoader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlFormLoader.Name = "pnlFormLoader";
             this.pnlFormLoader.Size = new System.Drawing.Size(977, 623);
+            this.pnlFormLoader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlFormLoader_MouseDown);
             this.pnlFormLoader.TabIndex = 14;
-            // 
-            // xmrPrice_DisplayPanel
-            // 
-            this.xmrPrice_DisplayPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.xmrPrice_DisplayPanel.Controls.Add(this.label3);
-            this.xmrPrice_DisplayPanel.Controls.Add(this.label5);
-            this.xmrPrice_DisplayPanel.Location = new System.Drawing.Point(851, 4);
-            this.xmrPrice_DisplayPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.xmrPrice_DisplayPanel.Name = "xmrPrice_DisplayPanel";
-            this.xmrPrice_DisplayPanel.Size = new System.Drawing.Size(320, 44);
-            this.xmrPrice_DisplayPanel.TabIndex = 37;
-            this.xmrPrice_DisplayPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.xmrPrice_DisplayPanel_Paint);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label3.Location = new System.Drawing.Point(4, 1);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 39);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "XMR =";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Lime;
-            this.label5.Location = new System.Drawing.Point(207, 1);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 39);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "$324";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::LibertyMinerGUI.Properties.Resources.money_bag;
-            this.pictureBox2.Location = new System.Drawing.Point(788, 4);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(55, 44);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
             // 
             // Form1
             // 
@@ -311,8 +262,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1225, 679);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.xmrPrice_DisplayPanel);
             this.Controls.Add(this.pnlFormLoader);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbltitle);
@@ -322,15 +271,12 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.xmrPrice_DisplayPanel.ResumeLayout(false);
-            this.xmrPrice_DisplayPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,10 +298,6 @@
         private System.Windows.Forms.Label lbltitle;
         private System.Windows.Forms.Button btnAnalytics;
         private System.Windows.Forms.Panel pnlFormLoader;
-        private System.Windows.Forms.Panel xmrPrice_DisplayPanel;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

@@ -32,7 +32,7 @@
             this.xmrPriceLbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.XmrEffortLbl = new System.Windows.Forms.Label();
+            this.totalHashesLbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BlocksFLbl = new System.Windows.Forms.Label();
@@ -93,7 +93,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel5.Controls.Add(this.XmrEffortLbl);
+            this.panel5.Controls.Add(this.totalHashesLbl);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Location = new System.Drawing.Point(1197, 1137);
             this.panel5.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
@@ -101,18 +101,18 @@
             this.panel5.Size = new System.Drawing.Size(1092, 203);
             this.panel5.TabIndex = 37;
             // 
-            // XmrEffortLbl
+            // totalHashesLbl
             // 
-            this.XmrEffortLbl.AutoSize = true;
-            this.XmrEffortLbl.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.XmrEffortLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.XmrEffortLbl.Location = new System.Drawing.Point(45, 113);
-            this.XmrEffortLbl.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.XmrEffortLbl.Name = "XmrEffortLbl";
-            this.XmrEffortLbl.Size = new System.Drawing.Size(943, 52);
-            this.XmrEffortLbl.TabIndex = 0;
-            this.XmrEffortLbl.Text = "Some extra text here to make the tab more  attractive";
-            this.XmrEffortLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.totalHashesLbl.AutoSize = true;
+            this.totalHashesLbl.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalHashesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+            this.totalHashesLbl.Location = new System.Drawing.Point(45, 113);
+            this.totalHashesLbl.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.totalHashesLbl.Name = "totalHashesLbl";
+            this.totalHashesLbl.Size = new System.Drawing.Size(943, 52);
+            this.totalHashesLbl.TabIndex = 0;
+            this.totalHashesLbl.Text = "Some extra text here to make the tab more  attractive";
+            this.totalHashesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label10
             // 
@@ -122,9 +122,9 @@
             this.label10.Location = new System.Drawing.Point(40, 32);
             this.label10.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(672, 76);
+            this.label10.Size = new System.Drawing.Size(582, 91);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Current XMR Block Effort:";
+            this.label10.Text = "Total Pool Hashes:";
             // 
             // panel2
             // 
@@ -309,7 +309,7 @@
         private System.Windows.Forms.Label xmrPriceLbl;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label XmrEffortLbl;
+        private System.Windows.Forms.Label totalHashesLbl;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label BlocksFLbl;

@@ -295,9 +295,29 @@ namespace LibertyMinerGUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap small_about___big {
+            get {
+                object obj = ResourceManager.GetObject("small-about - big", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap small_contact {
             get {
                 object obj = ResourceManager.GetObject("small_contact", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap small_contact___big {
+            get {
+                object obj = ResourceManager.GetObject("small-contact - big", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -315,6 +335,16 @@ namespace LibertyMinerGUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap small_mine_cart___big {
+            get {
+                object obj = ResourceManager.GetObject("small-mine-cart - big", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap small_settings1 {
             get {
                 object obj = ResourceManager.GetObject("small_settings1", resourceCulture);
@@ -325,9 +355,29 @@ namespace LibertyMinerGUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap small_settings1___big {
+            get {
+                object obj = ResourceManager.GetObject("small-settings1 - big", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap small_wallet {
             get {
                 object obj = ResourceManager.GetObject("small_wallet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap small_wallet___big {
+            get {
+                object obj = ResourceManager.GetObject("small-wallet - big", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

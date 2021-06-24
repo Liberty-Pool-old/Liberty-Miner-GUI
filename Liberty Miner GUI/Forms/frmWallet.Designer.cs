@@ -39,15 +39,15 @@
             this.PendingPanel = new System.Windows.Forms.Panel();
             this.PendingLbl = new System.Windows.Forms.Label();
             this.PendingTitle = new System.Windows.Forms.Label();
-            this.ValidPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.InvalidPanel = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.RAMpanel = new System.Windows.Forms.Panel();
+            this.RAMlbl = new System.Windows.Forms.Label();
+            this.RAMtitle = new System.Windows.Forms.Label();
+            this.FanPanel = new System.Windows.Forms.Panel();
+            this.FanLbl = new System.Windows.Forms.Label();
+            this.FanTitle = new System.Windows.Forms.Label();
+            this.CPUpanel = new System.Windows.Forms.Panel();
+            this.CPULbl = new System.Windows.Forms.Label();
+            this.CPUtitle = new System.Windows.Forms.Label();
             this.Stats_Panel = new System.Windows.Forms.Panel();
             this.ConsoleButton = new System.Windows.Forms.Button();
             this.GraphButton = new System.Windows.Forms.Button();
@@ -55,8 +55,8 @@
             this.PaymentsButton = new System.Windows.Forms.Button();
             this.RunCloseButton = new System.Windows.Forms.Button();
             this.ConsolePanel = new System.Windows.Forms.Panel();
+            this.XmrigOutput = new System.Windows.Forms.RichTextBox();
             this.ConsoleTitle = new System.Windows.Forms.Label();
-            this.XmrigOutput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PaymentsPanel = new System.Windows.Forms.Panel();
             this.GraphPanel = new System.Windows.Forms.Panel();
@@ -64,9 +64,9 @@
             this.HashPanel.SuspendLayout();
             this.PaidPanel.SuspendLayout();
             this.PendingPanel.SuspendLayout();
-            this.ValidPanel.SuspendLayout();
-            this.InvalidPanel.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.RAMpanel.SuspendLayout();
+            this.FanPanel.SuspendLayout();
+            this.CPUpanel.SuspendLayout();
             this.Stats_Panel.SuspendLayout();
             this.ConsolePanel.SuspendLayout();
             this.PaymentsPanel.SuspendLayout();
@@ -199,120 +199,120 @@
             this.PendingTitle.TabIndex = 0;
             this.PendingTitle.Text = "XMR Pending:";
             // 
-            // ValidPanel
+            // RAMpanel
             // 
-            this.ValidPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.ValidPanel.Controls.Add(this.label3);
-            this.ValidPanel.Controls.Add(this.label4);
-            this.ValidPanel.Location = new System.Drawing.Point(982, 225);
-            this.ValidPanel.Margin = new System.Windows.Forms.Padding(8);
-            this.ValidPanel.Name = "ValidPanel";
-            this.ValidPanel.Size = new System.Drawing.Size(920, 170);
-            this.ValidPanel.TabIndex = 42;
+            this.RAMpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.RAMpanel.Controls.Add(this.RAMlbl);
+            this.RAMpanel.Controls.Add(this.RAMtitle);
+            this.RAMpanel.Location = new System.Drawing.Point(982, 225);
+            this.RAMpanel.Margin = new System.Windows.Forms.Padding(8);
+            this.RAMpanel.Name = "RAMpanel";
+            this.RAMpanel.Size = new System.Drawing.Size(920, 170);
+            this.RAMpanel.TabIndex = 42;
             // 
-            // label3
+            // RAMlbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label3.Location = new System.Drawing.Point(38, 95);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 45);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "%";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RAMlbl.AutoSize = true;
+            this.RAMlbl.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RAMlbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+            this.RAMlbl.Location = new System.Drawing.Point(38, 95);
+            this.RAMlbl.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.RAMlbl.Name = "RAMlbl";
+            this.RAMlbl.Size = new System.Drawing.Size(47, 45);
+            this.RAMlbl.TabIndex = 0;
+            this.RAMlbl.Text = "%";
+            this.RAMlbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // RAMtitle
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(34, 27);
-            this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(284, 65);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "RAM Usage:";
+            this.RAMtitle.AutoSize = true;
+            this.RAMtitle.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RAMtitle.ForeColor = System.Drawing.Color.White;
+            this.RAMtitle.Location = new System.Drawing.Point(34, 27);
+            this.RAMtitle.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.RAMtitle.Name = "RAMtitle";
+            this.RAMtitle.Size = new System.Drawing.Size(284, 65);
+            this.RAMtitle.TabIndex = 0;
+            this.RAMtitle.Text = "RAM Usage:";
             // 
-            // InvalidPanel
+            // FanPanel
             // 
-            this.InvalidPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.InvalidPanel.Controls.Add(this.label9);
-            this.InvalidPanel.Controls.Add(this.label10);
-            this.InvalidPanel.Location = new System.Drawing.Point(0, 411);
-            this.InvalidPanel.Margin = new System.Windows.Forms.Padding(8);
-            this.InvalidPanel.Name = "InvalidPanel";
-            this.InvalidPanel.Size = new System.Drawing.Size(920, 170);
-            this.InvalidPanel.TabIndex = 43;
+            this.FanPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.FanPanel.Controls.Add(this.FanLbl);
+            this.FanPanel.Controls.Add(this.FanTitle);
+            this.FanPanel.Location = new System.Drawing.Point(0, 411);
+            this.FanPanel.Margin = new System.Windows.Forms.Padding(8);
+            this.FanPanel.Name = "FanPanel";
+            this.FanPanel.Size = new System.Drawing.Size(920, 170);
+            this.FanPanel.TabIndex = 43;
             // 
-            // label9
+            // FanLbl
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label9.Location = new System.Drawing.Point(38, 95);
-            this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(791, 45);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Some extra text here to make the tab more  attractive";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FanLbl.AutoSize = true;
+            this.FanLbl.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FanLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+            this.FanLbl.Location = new System.Drawing.Point(38, 95);
+            this.FanLbl.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.FanLbl.Name = "FanLbl";
+            this.FanLbl.Size = new System.Drawing.Size(791, 45);
+            this.FanLbl.TabIndex = 0;
+            this.FanLbl.Text = "Some extra text here to make the tab more  attractive";
+            this.FanLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label10
+            // FanTitle
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Cyan;
-            this.label10.Location = new System.Drawing.Point(34, 27);
-            this.label10.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(245, 65);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Fan Speed";
+            this.FanTitle.AutoSize = true;
+            this.FanTitle.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FanTitle.ForeColor = System.Drawing.Color.Cyan;
+            this.FanTitle.Location = new System.Drawing.Point(34, 27);
+            this.FanTitle.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.FanTitle.Name = "FanTitle";
+            this.FanTitle.Size = new System.Drawing.Size(245, 65);
+            this.FanTitle.TabIndex = 0;
+            this.FanTitle.Text = "Fan Speed";
             // 
-            // panel4
+            // CPUpanel
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Location = new System.Drawing.Point(982, 411);
-            this.panel4.Margin = new System.Windows.Forms.Padding(8);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(920, 170);
-            this.panel4.TabIndex = 44;
+            this.CPUpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.CPUpanel.Controls.Add(this.CPULbl);
+            this.CPUpanel.Controls.Add(this.CPUtitle);
+            this.CPUpanel.Location = new System.Drawing.Point(982, 411);
+            this.CPUpanel.Margin = new System.Windows.Forms.Padding(8);
+            this.CPUpanel.Name = "CPUpanel";
+            this.CPUpanel.Size = new System.Drawing.Size(920, 170);
+            this.CPUpanel.TabIndex = 44;
             // 
-            // label7
+            // CPULbl
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label7.Location = new System.Drawing.Point(38, 95);
-            this.label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(791, 45);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Some extra text here to make the tab more  attractive";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CPULbl.AutoSize = true;
+            this.CPULbl.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CPULbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+            this.CPULbl.Location = new System.Drawing.Point(38, 95);
+            this.CPULbl.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.CPULbl.Name = "CPULbl";
+            this.CPULbl.Size = new System.Drawing.Size(791, 45);
+            this.CPULbl.TabIndex = 0;
+            this.CPULbl.Text = "Some extra text here to make the tab more  attractive";
+            this.CPULbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label8
+            // CPUtitle
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label8.Location = new System.Drawing.Point(34, 27);
-            this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(255, 65);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "CPU Temp:";
+            this.CPUtitle.AutoSize = true;
+            this.CPUtitle.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CPUtitle.ForeColor = System.Drawing.Color.OrangeRed;
+            this.CPUtitle.Location = new System.Drawing.Point(34, 27);
+            this.CPUtitle.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.CPUtitle.Name = "CPUtitle";
+            this.CPUtitle.Size = new System.Drawing.Size(255, 65);
+            this.CPUtitle.TabIndex = 0;
+            this.CPUtitle.Text = "CPU Temp:";
             // 
             // Stats_Panel
             // 
             this.Stats_Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.Stats_Panel.Controls.Add(this.panel4);
-            this.Stats_Panel.Controls.Add(this.InvalidPanel);
-            this.Stats_Panel.Controls.Add(this.ValidPanel);
+            this.Stats_Panel.Controls.Add(this.CPUpanel);
+            this.Stats_Panel.Controls.Add(this.FanPanel);
+            this.Stats_Panel.Controls.Add(this.RAMpanel);
             this.Stats_Panel.Controls.Add(this.PendingPanel);
             this.Stats_Panel.Controls.Add(this.PaidPanel);
             this.Stats_Panel.Controls.Add(this.HashPanel);
@@ -410,13 +410,25 @@
             // ConsolePanel
             // 
             this.ConsolePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ConsolePanel.Controls.Add(this.ConsoleTitle);
             this.ConsolePanel.Controls.Add(this.XmrigOutput);
+            this.ConsolePanel.Controls.Add(this.ConsoleTitle);
             this.ConsolePanel.Location = new System.Drawing.Point(26, 492);
             this.ConsolePanel.Margin = new System.Windows.Forms.Padding(8);
             this.ConsolePanel.Name = "ConsolePanel";
             this.ConsolePanel.Size = new System.Drawing.Size(1902, 620);
             this.ConsolePanel.TabIndex = 46;
+            // 
+            // XmrigOutput
+            // 
+            this.XmrigOutput.BackColor = System.Drawing.Color.Black;
+            this.XmrigOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.XmrigOutput.ForeColor = System.Drawing.Color.Lime;
+            this.XmrigOutput.Location = new System.Drawing.Point(21, 93);
+            this.XmrigOutput.Name = "XmrigOutput";
+            this.XmrigOutput.ReadOnly = true;
+            this.XmrigOutput.Size = new System.Drawing.Size(1878, 515);
+            this.XmrigOutput.TabIndex = 14;
+            this.XmrigOutput.Text = "";
             // 
             // ConsoleTitle
             // 
@@ -429,21 +441,6 @@
             this.ConsoleTitle.Size = new System.Drawing.Size(208, 65);
             this.ConsoleTitle.TabIndex = 1;
             this.ConsoleTitle.Text = "Console:";
-            // 
-            // XmrigOutput
-            // 
-            this.XmrigOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.XmrigOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.XmrigOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.XmrigOutput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.XmrigOutput.Location = new System.Drawing.Point(27, 98);
-            this.XmrigOutput.Margin = new System.Windows.Forms.Padding(8);
-            this.XmrigOutput.Multiline = true;
-            this.XmrigOutput.Name = "XmrigOutput";
-            this.XmrigOutput.ReadOnly = true;
-            this.XmrigOutput.Size = new System.Drawing.Size(1848, 501);
-            this.XmrigOutput.TabIndex = 13;
-            this.XmrigOutput.Text = " Change your worker name here...";
             // 
             // label1
             // 
@@ -482,12 +479,12 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(39, 25);
+            this.label2.Location = new System.Drawing.Point(10, 25);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(239, 65);
+            this.label2.Size = new System.Drawing.Size(167, 65);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Payments:";
+            this.label2.Text = "Graph:";
             // 
             // frmWallet
             // 
@@ -495,8 +492,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1954, 1137);
-            this.Controls.Add(this.ConsolePanel);
             this.Controls.Add(this.GraphPanel);
+            this.Controls.Add(this.ConsolePanel);
             this.Controls.Add(this.Stats_Panel);
             this.Controls.Add(this.PaymentsPanel);
             this.Controls.Add(this.ConsoleButton);
@@ -515,12 +512,12 @@
             this.PaidPanel.PerformLayout();
             this.PendingPanel.ResumeLayout(false);
             this.PendingPanel.PerformLayout();
-            this.ValidPanel.ResumeLayout(false);
-            this.ValidPanel.PerformLayout();
-            this.InvalidPanel.ResumeLayout(false);
-            this.InvalidPanel.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.RAMpanel.ResumeLayout(false);
+            this.RAMpanel.PerformLayout();
+            this.FanPanel.ResumeLayout(false);
+            this.FanPanel.PerformLayout();
+            this.CPUpanel.ResumeLayout(false);
+            this.CPUpanel.PerformLayout();
             this.Stats_Panel.ResumeLayout(false);
             this.ConsolePanel.ResumeLayout(false);
             this.ConsolePanel.PerformLayout();
@@ -546,24 +543,24 @@
         private System.Windows.Forms.Panel PendingPanel;
         private System.Windows.Forms.Label PendingLbl;
         private System.Windows.Forms.Label PendingTitle;
-        private System.Windows.Forms.Panel ValidPanel;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel InvalidPanel;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel Stats_Panel;
+        private System.Windows.Forms.Panel RAMpanel;
+        private System.Windows.Forms.Label RAMlbl;
+        private System.Windows.Forms.Label RAMtitle;
+        private System.Windows.Forms.Panel FanPanel;
+        private System.Windows.Forms.Label FanLbl;
+        private System.Windows.Forms.Label FanTitle;
+        private System.Windows.Forms.Panel CPUpanel;
+        private System.Windows.Forms.Label CPULbl;
+        private System.Windows.Forms.Label CPUtitle;
+        public System.Windows.Forms.Panel Stats_Panel;
         private System.Windows.Forms.Button GraphButton;
         private System.Windows.Forms.Button ConsoleButton;
         private System.Windows.Forms.Panel ConsolePanel;
         private System.Windows.Forms.Label ConsoleTitle;
-        private System.Windows.Forms.TextBox XmrigOutput;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel PaymentsPanel;
         private System.Windows.Forms.Panel GraphPanel;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox XmrigOutput;
     }
 }

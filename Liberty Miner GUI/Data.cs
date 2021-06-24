@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using System.Threading.Tasks;
 
-namespace LP.Data
+namespace LibertyMinerGUI.Data
 {
 
+    public class Graph 
+    {
+        List<string> Timestamps;
+        List<string> Hashes;
+    }
     public class WalletData
     {
         public string Hashes;
@@ -15,16 +21,18 @@ namespace LP.Data
     }
     public class WalletPaymentsData 
     {
-
+        public List<String> Times;
+        public List<String> XMRamount;
     }
     public class PoolData
     {
         public string PoolHashrate;
-        //public string WorldXMRHashrate;
+        public string WorldXMRHashrate;
         public string xmrPrice;
         public int TotalPayments;
         public int BlocksFound;
         public string TotalMinersPaid;
+        public string TotalPoolHashrate;
     }
     public class ConfigData
     {

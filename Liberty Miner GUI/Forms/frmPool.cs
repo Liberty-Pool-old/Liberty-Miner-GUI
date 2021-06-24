@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using LP.Data;
-using LP;
+using LibertyMinerGUI.Data;
+using LibertyMinerGUI;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +26,8 @@ namespace LibertyMinerGUI
             BlocksFLbl.Text = poolData.BlocksFound.ToString();
             xmrPriceLbl.Text = poolData.xmrPrice.ToString();
             TotalPaymentsLbl.Text = poolData.TotalPayments.ToString();
-            //XmrEffortLbl.Text = poolData.;
+            WorldHashrateLbl.Text = poolData.WorldXMRHashrate;
+            totalHashesLbl.Text = poolData.TotalPoolHashrate;
             PoolHashLbl.Text = poolData.PoolHashrate;
         }
         #region BACKGROUND WORKER

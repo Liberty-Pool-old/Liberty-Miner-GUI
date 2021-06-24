@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibertyMinerGUI;
-using LP.Data;
-using LP;
+using LibertyMinerGUI.Data;
 
 namespace LibertyMinerGUI
 {

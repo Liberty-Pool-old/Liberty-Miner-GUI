@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using LP;
+using LibertyMinerGUI;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,10 +13,58 @@ using System.Diagnostics;
 
 namespace LibertyMinerGUI
 {
+    
     public partial class Form1 : Form
     {
-        public Process xmrig;
-        public bool running;
+        #region UI Movable
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        private void pnlFormLoader_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        private void lbltitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        #endregion
         #region UI
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -31,6 +79,14 @@ namespace LibertyMinerGUI
 
          );
         #endregion
+        frmWallet frmwallet;
+        frmPool frmPool;
+
+        public void CloseBWSubForms() 
+        {
+            frmwallet.Close();
+            frmPool.Close();
+        }
         public Form1()
         {
             InitializeComponent();
@@ -39,17 +95,15 @@ namespace LibertyMinerGUI
             pnlNav.Top = btnDashbord.Top;
             pnlNav.Left = btnDashbord.Left;
 
-            lbltitle.Text = "Dashbord";
-            frmWallet frmWallet_vrb = new frmWallet(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            lbltitle.Text = "Wallet Stats:";
+            frmWallet frmWallet_vrb = new frmWallet() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmwallet = frmWallet_vrb;
             frmWallet_vrb.FormBorderStyle = FormBorderStyle.None;
             this.pnlFormLoader.Controls.Add(frmWallet_vrb);
             frmWallet_vrb.Show();
+            //
+            CefSharp.Cef.EnableHighDPISupport();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
         private void btnWallet_Click(object sender, EventArgs e)
         {
             GoToWalletPanel();
@@ -63,12 +117,11 @@ namespace LibertyMinerGUI
 
             lbltitle.Text = "Wallet Stats:";
             this.pnlFormLoader.Controls.Clear();
-            frmWallet frmWallet_vrb = new frmWallet(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmWallet frmWallet_vrb = new frmWallet() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmWallet_vrb.FormBorderStyle = FormBorderStyle.None;
             this.pnlFormLoader.Controls.Add(frmWallet_vrb);
             frmWallet_vrb.Show();
         }
-
         private void btnPool_Click(object sender, EventArgs e)
         {
             pnlNav.Height = btnAnalytics.Height;
@@ -103,9 +156,14 @@ namespace LibertyMinerGUI
             pnlNav.Top = btnContactUs.Top;
             btnContactUs.BackColor = Color.FromArgb(46, 51, 73);
 
+            frmwallet.Stats_Panel.Visible = false;
+            frmwallet.Close();
             this.pnlFormLoader.Controls.Clear();
             frmContactUs frmContactUs_vrb = new frmContactUs() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmContactUs_vrb.FormBorderStyle = FormBorderStyle.None;
+            // Initialize cef with the provided settings
+            // Create a browser component
+            // Add it to the form and fill it to the form window.
             this.pnlFormLoader.Controls.Add(frmContactUs_vrb);
             frmContactUs_vrb.Show();
             lbltitle.Text = "Contact Us:";
@@ -157,7 +215,6 @@ namespace LibertyMinerGUI
 
         private void xmrPrice_DisplayPanel_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, this.xmrPrice_DisplayPanel.ClientRectangle, Color.FromArgb(158, 161, 176), ButtonBorderStyle.Solid);
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)

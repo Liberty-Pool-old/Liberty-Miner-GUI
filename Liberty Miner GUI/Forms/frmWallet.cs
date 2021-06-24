@@ -9,69 +9,84 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LP;
-using LP.Data;
+using LibertyMinerGUI;
+using LibertyMinerGUI.Data;
 
 namespace LibertyMinerGUI
 {
     public partial class frmWallet : Form
     {
-        Form1 form;
         string WalletAddress = Properties.Settings.Default.Wallet;
-        public frmWallet(Form1 form1)
+        public frmWallet()
         {
             InitializeComponent();
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             OpenPanel(Stats_Panel);
-            form = form1;
+            LP_Functionality.LP.frmwallet = this;
             LoadData();
             InitTimer();
         }
-        void LoadData() 
+        #region Data Loading
+        void LoadData()
         {
             CopyWalletButton.Text = "Copy:" + WalletAddress;
+            if (Stats_Panel.Visible) LoadStats();
+            if (ConsolePanel.Visible) LoadConsole();
             //
+            if (LP_Functionality.LP.running) RunCloseButton.Image = Properties.Resources.stop;
+
+        }
+        public void LoadConsole()
+        {
+            XmrigOutput.Text = LP_Functionality.LP.xmrigOutput;
+            XmrigOutput.SelectionStart = XmrigOutput.Text.Length + 1;
+            XmrigOutput.ScrollToCaret();
+        }
+        void LoadStats()
+        {
             WalletData walletData = LP_Functionality.FetchWalletData(WalletAddress);
             HashLbl.Text = walletData.Hashes;
             PaidLbl.Text = walletData.Paid;
             PendingLbl.Text = walletData.Pending;
-            //
-            if (form.running) RunCloseButton.Image = Properties.Resources.stop;
-            
+            RAMlbl.Text = LP_Functionality.RAM_Usage();
         }
-        void OpenPanel(Panel panel) 
+        #endregion
+        void OpenPanel(Panel panel)
         {
-            List<Panel> panels = new List<Panel>() { ConsolePanel, Stats_Panel, PaymentsPanel, GraphPanel};
-            foreach(Panel p in panels) 
+            List<Panel> panels = new List<Panel>() { ConsolePanel, Stats_Panel, PaymentsPanel, GraphPanel };
+            foreach (Panel p in panels)
             {
-                if(p.Equals(panel)) 
+                if (p.Equals(panel))
                 {
                     p.Visible = true;
                 }
-                else 
+                else
                 {
                     p.Visible = false;
                 }
             }
         }
-        async void RunCloseMiner() 
+        async void RunCloseMiner()
         {
-
-            if (form.running && !form.xmrig.HasExited) 
+            if (LP_Functionality.LP.running)
             {
-                form.xmrig.Kill();
+                if (LP_Functionality.LP.xmrig != null)
+                {
+                    if (!LP_Functionality.LP.xmrig.HasExited)
+                    {
+                        LP_Functionality.LP.xmrig.Kill();
+                    }
+                }
+                LP_Functionality.LP.running = false;
             }
             else
             {
-                form.xmrig = LP_Functionality.RunMiner();
-                form.xmrig.OutputDataReceived += process_OutputDataReceived;
+                await Task.Run(() => LP_Functionality.RunMiner());
+                //
                 ConsolePanel.Visible = true;
                 Stats_Panel.Visible = false;
+                LP_Functionality.LP.running = true;
             }
-        }
-
-        private void process_OutputDataReceived(object sender, DataReceivedEventArgs e)
-        {
-            XmrigOutput.Text = e.Data.ToString();
         }
 
         #region BACKGROUND WORKER
@@ -80,7 +95,7 @@ namespace LibertyMinerGUI
         {
             timer1 = new Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 2000; // in miliseconds
+            timer1.Interval = 1000; // in miliseconds
             timer1.Start();
         }
 
@@ -97,20 +112,18 @@ namespace LibertyMinerGUI
         }
         private void RunClose_Click(object sender, EventArgs e)
         {
-            RunCloseMiner();
             Image image1 = Properties.Resources.stop;
             Image image2 = Properties.Resources.play;
-            switch (form.running)
+            switch (LP_Functionality.LP.running)
             {
                 case true:
-                    form.running = false;
                     RunCloseButton.Image = image2;
                     break;
                 case false:
-                    form.running = true;
                     RunCloseButton.Image = image1;
                     break;
             }
+            RunCloseMiner();
         }
         private void StatsButton_Click(object sender, EventArgs e)
         {
