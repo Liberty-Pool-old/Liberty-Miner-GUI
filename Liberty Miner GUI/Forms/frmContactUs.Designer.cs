@@ -28,22 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.chromiumWebBrowser1 = new CefSharp.WinForms.ChromiumWebBrowser();
             this.Contact_Us_Panel = new System.Windows.Forms.Panel();
             this.OpenDiscordButton = new System.Windows.Forms.Button();
             this.emailLink = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.Contact_Us_Panel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // chromiumWebBrowser1
-            // 
-            this.chromiumWebBrowser1.ActivateBrowserOnCreation = false;
-// TODO: Code generation for '' failed because of Exception 'Invalid Primitive Type: System.IntPtr. Consider using CodeObjectCreateExpression.'.
-            this.chromiumWebBrowser1.Location = new System.Drawing.Point(0, 1099);
-            this.chromiumWebBrowser1.Name = "chromiumWebBrowser1";
-            this.chromiumWebBrowser1.Size = new System.Drawing.Size(1954, 50);
-            this.chromiumWebBrowser1.TabIndex = 0;
             // 
             // Contact_Us_Panel
             // 
@@ -55,7 +45,6 @@
             this.Contact_Us_Panel.Name = "Contact_Us_Panel";
             this.Contact_Us_Panel.Size = new System.Drawing.Size(1954, 1149);
             this.Contact_Us_Panel.TabIndex = 1;
-            this.Contact_Us_Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Contact_Us_Panel_Paint);
             // 
             // OpenDiscordButton
             // 
@@ -107,12 +96,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1954, 1149);
             this.Controls.Add(this.Contact_Us_Panel);
-            this.Controls.Add(this.chromiumWebBrowser1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(8);
             this.Name = "frmContactUs";
             this.Text = "frmContactUs";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmContactUs_FormClosing);
             this.Contact_Us_Panel.ResumeLayout(false);
             this.Contact_Us_Panel.PerformLayout();
             this.ResumeLayout(false);
@@ -121,7 +108,6 @@
 
         #endregion
 
-        private CefSharp.WinForms.ChromiumWebBrowser chromiumWebBrowser1;
         private System.Windows.Forms.Panel Contact_Us_Panel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel emailLink;

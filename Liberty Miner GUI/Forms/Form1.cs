@@ -110,7 +110,7 @@ namespace LibertyMinerGUI
             //
             if (LP_Functionality.IsResolutionRightForHighDPH())
             {
-            CefSharp.Cef.EnableHighDPISupport();
+                System.Windows.SystemParameters.PrimaryScreenWidth.ToString();
             }
         }
         private void btnWallet_Click(object sender, EventArgs e)
