@@ -69,6 +69,9 @@
     <OutputPath>bin\x64\Release\</OutputPath>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CefSharp, Version=91.1.210.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
       <HintPath>..\packages\CefSharp.Common.91.1.210\lib\net452\CefSharp.dll</HintPath>
@@ -87,6 +90,12 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.2.0\lib\net45\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.2.0\lib\net45\Plugin.Connectivity.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -151,11 +160,11 @@
     <Compile Include="Forms\frmPool.Designer.cs">
       <DependentUpon>frmPool.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmAbout.cs">
+    <Compile Include="Forms\frmAnncs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmAbout.Designer.cs">
-      <DependentUpon>frmAbout.cs</DependentUpon>
+    <Compile Include="Forms\frmAnncs.Designer.cs">
+      <DependentUpon>frmAnncs.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmContactUs.cs">
       <SubType>Form</SubType>
@@ -190,20 +199,14 @@
     <Compile Include="LP_Functionality.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\trash.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\trash.Designer.cs">
-      <DependentUpon>trash.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPool.resx">
       <DependentUpon>frmPool.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmAbout.resx">
-      <DependentUpon>frmAbout.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmAnncs.resx">
+      <DependentUpon>frmAnncs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmContactUs.resx">
       <DependentUpon>frmContactUs.cs</DependentUpon>
@@ -227,9 +230,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\trash.resx">
-      <DependentUpon>trash.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -311,6 +312,8 @@
     <None Include="Resources\Main Panel Icons\big\small-mine-cart - big.png" />
     <None Include="Resources\Main Panel Icons\big\small-settings1 - big.png" />
     <None Include="Resources\Main Panel Icons\big\small-wallet - big.png" />
+    <None Include="Resources\ContactUs\discord-logo.png" />
+    <None Include="Resources\ContactUs\discord.png" />
     <Content Include="Resources\Main Panel Icons\small-about.png" />
     <Content Include="Resources\Main Panel Icons\small-mine-cart.png" />
     <Content Include="Resources\Main Panel Icons\small-settings1.png" />

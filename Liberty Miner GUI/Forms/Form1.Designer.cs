@@ -32,9 +32,9 @@
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnsettings = new System.Windows.Forms.Button();
             this.btnContactUs = new System.Windows.Forms.Button();
-            this.btnCalender = new System.Windows.Forms.Button();
-            this.btnAnalytics = new System.Windows.Forms.Button();
-            this.btnDashbord = new System.Windows.Forms.Button();
+            this.btnAnnouncements = new System.Windows.Forms.Button();
+            this.btnPool = new System.Windows.Forms.Button();
+            this.btnWallet = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,9 +53,9 @@
             this.panel1.Controls.Add(this.pnlNav);
             this.panel1.Controls.Add(this.btnsettings);
             this.panel1.Controls.Add(this.btnContactUs);
-            this.panel1.Controls.Add(this.btnCalender);
-            this.panel1.Controls.Add(this.btnAnalytics);
-            this.panel1.Controls.Add(this.btnDashbord);
+            this.panel1.Controls.Add(this.btnAnnouncements);
+            this.panel1.Controls.Add(this.btnPool);
+            this.panel1.Controls.Add(this.btnWallet);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -105,68 +105,68 @@
             this.btnContactUs.Name = "btnContactUs";
             this.btnContactUs.Size = new System.Drawing.Size(248, 52);
             this.btnContactUs.TabIndex = 1;
-            this.btnContactUs.Text = "Contact Us";
+            this.btnContactUs.Text = "Contact Us         ";
             this.btnContactUs.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnContactUs.UseVisualStyleBackColor = true;
             this.btnContactUs.Click += new System.EventHandler(this.btnContactUs_Click);
             this.btnContactUs.Leave += new System.EventHandler(this.btnContactUs_Leave);
             // 
-            // btnCalender
+            // btnAnnouncements
             // 
-            this.btnCalender.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCalender.FlatAppearance.BorderSize = 0;
-            this.btnCalender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCalender.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnCalender.Image = global::LibertyMinerGUI.Properties.Resources.small_about;
-            this.btnCalender.Location = new System.Drawing.Point(0, 294);
-            this.btnCalender.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCalender.Name = "btnCalender";
-            this.btnCalender.Size = new System.Drawing.Size(248, 52);
-            this.btnCalender.TabIndex = 1;
-            this.btnCalender.Text = "About       ";
-            this.btnCalender.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnCalender.UseVisualStyleBackColor = true;
-            this.btnCalender.Click += new System.EventHandler(this.btnAboutUs_Click);
-            this.btnCalender.Leave += new System.EventHandler(this.btnCalender_Leave);
+            this.btnAnnouncements.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAnnouncements.FlatAppearance.BorderSize = 0;
+            this.btnAnnouncements.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnnouncements.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnnouncements.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnAnnouncements.Image = global::LibertyMinerGUI.Properties.Resources.small_about;
+            this.btnAnnouncements.Location = new System.Drawing.Point(0, 294);
+            this.btnAnnouncements.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAnnouncements.Name = "btnAnnouncements";
+            this.btnAnnouncements.Size = new System.Drawing.Size(248, 52);
+            this.btnAnnouncements.TabIndex = 1;
+            this.btnAnnouncements.Text = "Announcements";
+            this.btnAnnouncements.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAnnouncements.UseVisualStyleBackColor = true;
+            this.btnAnnouncements.Click += new System.EventHandler(this.btnAnnouncements_Click);
+            this.btnAnnouncements.Leave += new System.EventHandler(this.btnAnnouncements_Leave);
             // 
-            // btnAnalytics
+            // btnPool
             // 
-            this.btnAnalytics.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAnalytics.FlatAppearance.BorderSize = 0;
-            this.btnAnalytics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnalytics.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnalytics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnAnalytics.Image = global::LibertyMinerGUI.Properties.Resources.small_mine_cart;
-            this.btnAnalytics.Location = new System.Drawing.Point(0, 242);
-            this.btnAnalytics.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAnalytics.Name = "btnAnalytics";
-            this.btnAnalytics.Size = new System.Drawing.Size(248, 52);
-            this.btnAnalytics.TabIndex = 1;
-            this.btnAnalytics.Text = "Pool          ";
-            this.btnAnalytics.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAnalytics.UseVisualStyleBackColor = true;
-            this.btnAnalytics.Click += new System.EventHandler(this.btnPool_Click);
-            this.btnAnalytics.Leave += new System.EventHandler(this.btnAnalytics_Leave);
+            this.btnPool.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPool.FlatAppearance.BorderSize = 0;
+            this.btnPool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPool.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnPool.Image = global::LibertyMinerGUI.Properties.Resources.small_mine_cart;
+            this.btnPool.Location = new System.Drawing.Point(0, 242);
+            this.btnPool.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPool.Name = "btnPool";
+            this.btnPool.Size = new System.Drawing.Size(248, 52);
+            this.btnPool.TabIndex = 1;
+            this.btnPool.Text = "Pool                    ";
+            this.btnPool.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnPool.UseVisualStyleBackColor = true;
+            this.btnPool.Click += new System.EventHandler(this.btnPool_Click);
+            this.btnPool.Leave += new System.EventHandler(this.btnPool_Leave);
             // 
-            // btnDashbord
+            // btnWallet
             // 
-            this.btnDashbord.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDashbord.FlatAppearance.BorderSize = 0;
-            this.btnDashbord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashbord.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashbord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDashbord.Image = global::LibertyMinerGUI.Properties.Resources.small_wallet;
-            this.btnDashbord.Location = new System.Drawing.Point(0, 190);
-            this.btnDashbord.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDashbord.Name = "btnDashbord";
-            this.btnDashbord.Size = new System.Drawing.Size(248, 52);
-            this.btnDashbord.TabIndex = 1;
-            this.btnDashbord.Text = "Wallet       ";
-            this.btnDashbord.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnDashbord.UseVisualStyleBackColor = true;
-            this.btnDashbord.Click += new System.EventHandler(this.btnWallet_Click);
-            this.btnDashbord.Leave += new System.EventHandler(this.btnDashbord_Leave);
+            this.btnWallet.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnWallet.FlatAppearance.BorderSize = 0;
+            this.btnWallet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWallet.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWallet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnWallet.Image = global::LibertyMinerGUI.Properties.Resources.small_wallet;
+            this.btnWallet.Location = new System.Drawing.Point(0, 190);
+            this.btnWallet.Margin = new System.Windows.Forms.Padding(4);
+            this.btnWallet.Name = "btnWallet";
+            this.btnWallet.Size = new System.Drawing.Size(248, 52);
+            this.btnWallet.TabIndex = 1;
+            this.btnWallet.Text = "Wallet                 ";
+            this.btnWallet.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnWallet.UseVisualStyleBackColor = true;
+            this.btnWallet.Click += new System.EventHandler(this.btnWallet_Click);
+            this.btnWallet.Leave += new System.EventHandler(this.btnWallet_Leave);
             // 
             // panel2
             // 
@@ -244,7 +244,7 @@
             this.lbltitle.Size = new System.Drawing.Size(195, 39);
             this.lbltitle.TabIndex = 10;
             this.lbltitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbltitle_MouseDown);
-            this.lbltitle.Text = "Dashboard";
+            this.lbltitle.Text = "Wallet:";
             // 
             // pnlFormLoader
             // 
@@ -273,6 +273,7 @@
             this.Text = "Form1";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -285,18 +286,18 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnDashbord;
+        private System.Windows.Forms.Button btnWallet;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnsettings;
         private System.Windows.Forms.Button btnContactUs;
-        private System.Windows.Forms.Button btnCalender;
+        private System.Windows.Forms.Button btnAnnouncements;
         private System.Windows.Forms.Panel pnlNav;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbltitle;
-        private System.Windows.Forms.Button btnAnalytics;
+        private System.Windows.Forms.Button btnPool;
         private System.Windows.Forms.Panel pnlFormLoader;
     }
 }

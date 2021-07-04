@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Wallet" Type="System.String" Scope="User">
-      <Value Profile="(Default)">46EpybCgNjC9kkbLr8sE1SMbhdGzCVXPLW9fKDh3teNEPH5gJ8QNKvBKFffFr2aUtocWjwspK5nrkA3uK48uiMD5SWfaxLH</Value>
+      <Value Profile="(Default)">89J48o9yRxMa74nMDboijmemEg4xrqCvkP3BHtv3yzP334RY3NSHA7ejH7rqp7nDByPv3Z9haXBt4SHp4qTPnycq3kdYVSH</Value>
     </Setting>
     <Setting Name="Worker" Type="System.String" Scope="User">
       <Value Profile="(Default)">A good boy</Value>

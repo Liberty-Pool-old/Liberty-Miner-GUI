@@ -25,8 +25,8 @@ namespace LibertyMinerGUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("46EpybCgNjC9kkbLr8sE1SMbhdGzCVXPLW9fKDh3teNEPH5gJ8QNKvBKFffFr2aUtocWjwspK5nrkA3uK" +
-            "48uiMD5SWfaxLH")]
+        [global::System.Configuration.DefaultSettingValueAttribute("89J48o9yRxMa74nMDboijmemEg4xrqCvkP3BHtv3yzP334RY3NSHA7ejH7rqp7nDByPv3Z9haXBt4SHp4" +
+            "qTPnycq3kdYVSH")]
         public string Wallet {
             get {
                 return ((string)(this["Wallet"]));

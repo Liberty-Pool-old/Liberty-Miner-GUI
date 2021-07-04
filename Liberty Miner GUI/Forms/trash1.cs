@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibertyMinerGUI
 {
-    public partial class trash1 : Form
+    public partial class Contact_Us_Panel : Form
     {
-        public trash1()
+        public Contact_Us_Panel()
         {
             InitializeComponent();
         }

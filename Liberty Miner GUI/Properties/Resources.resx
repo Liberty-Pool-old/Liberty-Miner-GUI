@@ -127,6 +127,9 @@
   <data name="Conact" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Conact.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="small-wallet - big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Main Panel Icons\big\small-wallet - big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="small_settings1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\main panel icons\small-settings1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,9 +138,6 @@
   </data>
   <data name="graph-report" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WalletFormIcons\graph-report.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="small_about" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\main panel icons\small-about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="small_wallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\main panel icons\small-wallet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,8 +151,11 @@
   <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="small-contact - big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Main Panel Icons\big\small-contact - big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="small_about" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\main panel icons\small-about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chart-diagram" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chart-diagram.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,14 +175,14 @@
   <data name="config1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\config.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="small-settings1 - big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Main Panel Icons\big\small-settings1 - big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="money-bag" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\money-bag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Lrg-settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lrg-settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Untitled-11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Untitled-11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="us_dollar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\walletformicons\us-dollar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,11 +193,17 @@
   <data name="downloads" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\downloads.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="small-about - big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Main Panel Icons\big\small-about - big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="diagram1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\diagram1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Lrg-calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Lrg-calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Untitled-11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Untitled-11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="diagram" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\diagram.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,22 +211,19 @@
   <data name="chart-diagram1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chart-diagram1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="settings__v1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\walletformicons\settings--v1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Lrg-calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lrg-calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="small-about - big" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Main Panel Icons\big\small-about - big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="small-contact - big" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Main Panel Icons\big\small-contact - big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="discord-logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ContactUs\discord-logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="small-mine-cart - big" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Main Panel Icons\big\small-mine-cart - big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="small-settings1 - big" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Main Panel Icons\big\small-settings1 - big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settings__v1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\walletformicons\settings--v1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="small-wallet - big" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Main Panel Icons\big\small-wallet - big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="discord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ContactUs\discord.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

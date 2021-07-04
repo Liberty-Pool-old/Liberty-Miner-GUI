@@ -29,17 +29,76 @@
         private void InitializeComponent()
         {
             this.chromiumWebBrowser1 = new CefSharp.WinForms.ChromiumWebBrowser();
+            this.Contact_Us_Panel = new System.Windows.Forms.Panel();
+            this.OpenDiscordButton = new System.Windows.Forms.Button();
+            this.emailLink = new System.Windows.Forms.LinkLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Contact_Us_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // chromiumWebBrowser1
             // 
             this.chromiumWebBrowser1.ActivateBrowserOnCreation = false;
 // TODO: Code generation for '' failed because of Exception 'Invalid Primitive Type: System.IntPtr. Consider using CodeObjectCreateExpression.'.
-            this.chromiumWebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chromiumWebBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.chromiumWebBrowser1.Location = new System.Drawing.Point(0, 1099);
             this.chromiumWebBrowser1.Name = "chromiumWebBrowser1";
-            this.chromiumWebBrowser1.Size = new System.Drawing.Size(1954, 1149);
+            this.chromiumWebBrowser1.Size = new System.Drawing.Size(1954, 50);
             this.chromiumWebBrowser1.TabIndex = 0;
+            // 
+            // Contact_Us_Panel
+            // 
+            this.Contact_Us_Panel.Controls.Add(this.OpenDiscordButton);
+            this.Contact_Us_Panel.Controls.Add(this.emailLink);
+            this.Contact_Us_Panel.Controls.Add(this.label3);
+            this.Contact_Us_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Contact_Us_Panel.Location = new System.Drawing.Point(0, 0);
+            this.Contact_Us_Panel.Name = "Contact_Us_Panel";
+            this.Contact_Us_Panel.Size = new System.Drawing.Size(1954, 1149);
+            this.Contact_Us_Panel.TabIndex = 1;
+            this.Contact_Us_Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Contact_Us_Panel_Paint);
+            // 
+            // OpenDiscordButton
+            // 
+            this.OpenDiscordButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.OpenDiscordButton.FlatAppearance.BorderSize = 0;
+            this.OpenDiscordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenDiscordButton.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenDiscordButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.OpenDiscordButton.Image = global::LibertyMinerGUI.Properties.Resources.discord;
+            this.OpenDiscordButton.Location = new System.Drawing.Point(1681, 871);
+            this.OpenDiscordButton.Margin = new System.Windows.Forms.Padding(8);
+            this.OpenDiscordButton.Name = "OpenDiscordButton";
+            this.OpenDiscordButton.Size = new System.Drawing.Size(238, 245);
+            this.OpenDiscordButton.TabIndex = 38;
+            this.OpenDiscordButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.OpenDiscordButton.UseVisualStyleBackColor = false;
+            this.OpenDiscordButton.Click += new System.EventHandler(this.OpenDiscordButton_Click);
+            // 
+            // emailLink
+            // 
+            this.emailLink.AutoSize = true;
+            this.emailLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailLink.LinkColor = System.Drawing.Color.LightSeaGreen;
+            this.emailLink.Location = new System.Drawing.Point(57, 123);
+            this.emailLink.Name = "emailLink";
+            this.emailLink.Size = new System.Drawing.Size(529, 46);
+            this.emailLink.TabIndex = 1;
+            this.emailLink.TabStop = true;
+            this.emailLink.Text = "liberty-pool@libercrypto.com";
+            this.emailLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.emailLink_LinkClicked);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(35, 36);
+            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(1384, 67);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "If you have any issues or complaints, please refer to the email:\r\n";
             // 
             // frmContactUs
             // 
@@ -47,12 +106,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1954, 1149);
+            this.Controls.Add(this.Contact_Us_Panel);
             this.Controls.Add(this.chromiumWebBrowser1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(8);
             this.Name = "frmContactUs";
             this.Text = "frmContactUs";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmContactUs_FormClosing);
+            this.Contact_Us_Panel.ResumeLayout(false);
+            this.Contact_Us_Panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -60,5 +122,9 @@
         #endregion
 
         private CefSharp.WinForms.ChromiumWebBrowser chromiumWebBrowser1;
+        private System.Windows.Forms.Panel Contact_Us_Panel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.LinkLabel emailLink;
+        private System.Windows.Forms.Button OpenDiscordButton;
     }
 }

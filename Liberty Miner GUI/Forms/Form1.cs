@@ -81,19 +81,25 @@ namespace LibertyMinerGUI
         #endregion
         frmWallet frmwallet;
         frmPool frmPool;
+        frmContactUs frmContactUs;
 
         public void CloseBWSubForms() 
         {
-            frmwallet.Close();
-            frmPool.Close();
+            if (frmwallet != null)
+            {
+                frmwallet.Hide();
+
+            }
+            if (frmPool != null) frmPool.Close();
+            if (frmContactUs != null) frmContactUs.Close();
         }
         public Form1()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            pnlNav.Height = btnDashbord.Height;
-            pnlNav.Top = btnDashbord.Top;
-            pnlNav.Left = btnDashbord.Left;
+            pnlNav.Height = btnWallet.Height;
+            pnlNav.Top = btnWallet.Top;
+            pnlNav.Left = btnWallet.Left;
 
             lbltitle.Text = "Wallet Stats:";
             frmWallet frmWallet_vrb = new frmWallet() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -102,7 +108,10 @@ namespace LibertyMinerGUI
             this.pnlFormLoader.Controls.Add(frmWallet_vrb);
             frmWallet_vrb.Show();
             //
+            if (LP_Functionality.IsResolutionRightForHighDPH())
+            {
             CefSharp.Cef.EnableHighDPISupport();
+            }
         }
         private void btnWallet_Click(object sender, EventArgs e)
         {
@@ -110,10 +119,12 @@ namespace LibertyMinerGUI
         }
         public void GoToWalletPanel() 
         {
-            pnlNav.Height = btnDashbord.Height;
-            pnlNav.Top = btnDashbord.Top;
-            pnlNav.Left = btnDashbord.Left;
-            btnDashbord.BackColor = Color.FromArgb(46, 51, 73);
+            CloseBWSubForms();
+            //
+            pnlNav.Height = btnWallet.Height;
+            pnlNav.Top = btnWallet.Top;
+            pnlNav.Left = btnWallet.Left;
+            btnWallet.BackColor = Color.FromArgb(46, 51, 73);
 
             lbltitle.Text = "Wallet Stats:";
             this.pnlFormLoader.Controls.Clear();
@@ -124,9 +135,11 @@ namespace LibertyMinerGUI
         }
         private void btnPool_Click(object sender, EventArgs e)
         {
-            pnlNav.Height = btnAnalytics.Height;
-            pnlNav.Top = btnAnalytics.Top;
-            btnAnalytics.BackColor = Color.FromArgb(46, 51, 73);
+            CloseBWSubForms();
+            //
+            pnlNav.Height = btnPool.Height;
+            pnlNav.Top = btnPool.Top;
+            btnPool.BackColor = Color.FromArgb(46, 51, 73);
 
             lbltitle.Text = "Pool Stats:";
             this.pnlFormLoader.Controls.Clear();
@@ -136,22 +149,26 @@ namespace LibertyMinerGUI
             frmPool_vrb.Show();
         }
 
-        private void btnAboutUs_Click(object sender, EventArgs e)
+        private void btnAnnouncements_Click(object sender, EventArgs e)
         {
-            pnlNav.Height = btnCalender.Height;
-            pnlNav.Top = btnCalender.Top;
-            btnCalender.BackColor = Color.FromArgb(46, 51, 73);
+            CloseBWSubForms();
+            //
+            pnlNav.Height = btnAnnouncements.Height;
+            pnlNav.Top = btnAnnouncements.Top;
+            btnAnnouncements.BackColor = Color.FromArgb(46, 51, 73);
 
             this.pnlFormLoader.Controls.Clear();
             frmAbout frmAbout_vrb = new frmAbout() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmAbout_vrb.FormBorderStyle = FormBorderStyle.None;
             this.pnlFormLoader.Controls.Add(frmAbout_vrb);
             frmAbout_vrb.Show();
-            lbltitle.Text = "About us:";
+            lbltitle.Text = "";
         }
 
         private void btnContactUs_Click(object sender, EventArgs e)
         {
+            CloseBWSubForms();
+            //
             pnlNav.Height = btnContactUs.Height;
             pnlNav.Top = btnContactUs.Top;
             btnContactUs.BackColor = Color.FromArgb(46, 51, 73);
@@ -171,6 +188,8 @@ namespace LibertyMinerGUI
 
         private void btnsettings_Click(object sender, EventArgs e)
         {
+            CloseBWSubForms();
+            //
             pnlNav.Height = btnsettings.Height;
             pnlNav.Top = btnsettings.Top;
             btnsettings.BackColor = Color.FromArgb(46, 51, 73);
@@ -183,19 +202,19 @@ namespace LibertyMinerGUI
             lbltitle.Text = "";
         }
 
-        private void btnDashbord_Leave(object sender, EventArgs e)
+        private void btnWallet_Leave(object sender, EventArgs e)
         {
-            btnDashbord.BackColor = Color.FromArgb(24, 30, 54);
+            btnWallet.BackColor = Color.FromArgb(24, 30, 54);
         }
 
-        private void btnAnalytics_Leave(object sender, EventArgs e)
+        private void btnPool_Leave(object sender, EventArgs e)
         {
-            btnAnalytics.BackColor = Color.FromArgb(24, 30, 54);
+            btnPool.BackColor = Color.FromArgb(24, 30, 54);
         }
 
-        private void btnCalender_Leave(object sender, EventArgs e)
+        private void btnAnnouncements_Leave(object sender, EventArgs e)
         {
-            btnCalender.BackColor = Color.FromArgb(24, 30, 54);
+            btnAnnouncements.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnContactUs_Leave(object sender, EventArgs e)
@@ -220,6 +239,11 @@ namespace LibertyMinerGUI
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, Color.FromArgb(46, 51, 73), ButtonBorderStyle.Solid);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            LP_Functionality.KillMiner();
         }
     }
 }

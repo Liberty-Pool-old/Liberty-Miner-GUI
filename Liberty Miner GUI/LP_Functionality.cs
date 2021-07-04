@@ -14,6 +14,10 @@ using System.Runtime.InteropServices;
 using System.Management;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Drawing;
+using System.Globalization;
+using Plugin.Connectivity;
+using Microsoft.Win32;
 
 namespace LibertyMinerGUI
 {
@@ -23,9 +27,9 @@ namespace LibertyMinerGUI
         public static LP_Functionality LP = new LP_Functionality();
         public static string ContactApiURL = "https://e.widgetbot.io/channels/758798463428329532/785524459779915777/?preset=crate&amp;api=f2b47969-cca9-4fa9-af9c-1b46b929c144";
         public static string PoolApiURL = "https://liberty-pool.com/api/pool/stats";
+        public static string AnnouncementsApiURL = "https://raw.githubusercontent.com/Liberty-Pool/etc/master/Liberty%20Miner%20GUI/ancn.txt";
         public static string XMRpriceApiURL = "https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=BTC,USD,EUR";
         public static string XMRhashrateApiURL = "https://localmonero.co/blocks/api/get_stats";
-        public static string WalletStatsApiUrl = "https://liberty-pool.com/api/miner/" + Settings.Default.Wallet + "/stats";
         public static string xmrigPath = Path.Combine(Application.StartupPath, "xmrig.exe");
         public static string configPath = Path.Combine(Application.StartupPath, "config.json");
         public static List<String> cpuPorts = new List<String>()
@@ -58,27 +62,52 @@ namespace LibertyMinerGUI
          "~c29v",
          "~c29s",
         };
+        public static WalletData walletData;
         //
+        public Stopwatch xmrigWatch = new Stopwatch();
         public bool running = false;
         public Process xmrig;
         public frmWallet frmwallet;
         public string xmrigOutput = "XMRIG is not running...";
         #endregion
         #region Get Data
-        static public bool IsConnectedToInternet()
+        #region Get Memory Data
+        [DllImport("kernel32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool GetPhysicallyInstalledSystemMemory(out long TotalMemoryInKilobytes);
+        static public float GetMinerMemoryUsageMB()
         {
-            string host = "http://google.com";
-            bool result = false;
-            Ping p = new Ping();
-            try
+            Process[] localByName = Process.GetProcessesByName("xmrig");
+            long x = 0;
+            float y = 0;
+            foreach (Process p in localByName)
             {
-                PingReply reply = p.Send(host, 3000);
-                if (reply.Status == IPStatus.Success)
-                    return true;
+                long memoryUse = (p.PagedMemorySize64);
+                x = memoryUse;
+                y = x / 100000;
+                y = y / 10;
             }
-            catch { }
-            return result;
+            return y;
         }
+        static public float GetLPGUIMemoryUsage()
+        {
+            long t = Process.GetCurrentProcess().PrivateMemorySize64;
+            return (float)t / 1024;
+        }
+        static public float GetPCMemory()
+        {
+            long memKb;
+            GetPhysicallyInstalledSystemMemory(out memKb);
+            Console.WriteLine((memKb / 1024) + " MB of RAM installed.");
+            return (float)memKb;
+        }
+        static public string TotalMemoryUsagePercentage()
+        {
+            float usage = GetLPGUIMemoryUsage() + GetMinerMemoryUsageMB();
+            float y = (usage * 100) / GetPCMemory();
+            return Math.Round(y, 2) + " %";
+        }
+        #endregion
         static public bool IsRunning(Process process)
         {
             if (process == null)
@@ -94,7 +123,64 @@ namespace LibertyMinerGUI
             }
             return true;
         }
+        static public string GetResolution()
+        {
+            string ExecPath = Path.Combine(Application.StartupPath, "GetScreenResolution.exe");
+            Process compiler = new Process();
+            compiler.StartInfo.FileName = ExecPath;
+            compiler.StartInfo.CreateNoWindow = true;
+            compiler.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            compiler.StartInfo.UseShellExecute = false;
+            compiler.StartInfo.RedirectStandardOutput = true;
+            compiler.Start();
+            return compiler.StandardOutput.ReadToEnd();
+        }
+        static public bool IsResolutionRightForHighDPH()
+        {
+            if (int.Parse(GetResolution().Split('x')[0]) <= 1920 && int.Parse(GetResolution().Split('x')[0]) >= 1280)
+            {
+                if (int.Parse(GetResolution().Split('x')[0]) == 1920)
+                {
+                    if (int.Parse(GetResolution().Split('x')[1]) <= 1080)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else if (int.Parse(GetResolution().Split('x')[0]) == 1280)
+                {
+                    if (int.Parse(GetResolution().Split('x')[1]) >= 720)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        static public async Task<bool> InternetConnectionAvailableAsync()
+        {
+            bool canReach = await CrossConnectivity.Current.IsRemoteReachable("google.com");
+            return canReach;
+        }
         #region Data Requests
+        public static string WalletStatsApiUrl()
+        {
+            return "https://liberty-pool.com/api/miner/" + Settings.Default.Wallet + "/stats";
+        }
         public static string DownloadString(string address)
         {
             ServicePointManager.Expect100Continue = true;
@@ -104,23 +190,46 @@ namespace LibertyMinerGUI
             string reply = client.DownloadString(uri);
             return reply;
         }
-        static public WalletData FetchWalletData(string walletAdress)
+        static async public void FetchWalletData(string walletAdress)
         {
             WalletData result = new WalletData();
-            dynamic wallet = JObject.Parse(DownloadString(WalletStatsApiUrl));
+            string apiresult;
+            using (var client = new WebClient())
+            {
+                apiresult = await client.DownloadStringTaskAsync(WalletStatsApiUrl());
+            }
+            dynamic wallet = JObject.Parse(apiresult);
             dynamic w = wallet;
             string wallethash = w.hash;
             result.Hashes = ConvertRawHashToCorrespondentHash(wallethash);
             result.Paid = w.amtPaid / Math.Pow(10, 12);
             result.Pending = w.amtDue / Math.Pow(10, 12);
-            return result;
+            walletData = result;
         }
-        static public PoolData FetchPoolData()
+        static public async Task<PoolData> FetchPoolDataAsync()
         {
             PoolData result = new PoolData();
-            dynamic pool = JObject.Parse(DownloadString(PoolApiURL));
-            dynamic xmr = JObject.Parse(DownloadString(XMRpriceApiURL));
-            dynamic WorldXMRHash = JObject.Parse(DownloadString(XMRhashrateApiURL));
+            //
+            string poolresult;
+            using (var client = new WebClient())
+            {
+                poolresult = await client.DownloadStringTaskAsync(PoolApiURL);
+            }
+            dynamic pool = JObject.Parse(poolresult);
+            //
+            string xmrresult;
+            using (var client = new WebClient())
+            {
+                xmrresult = await client.DownloadStringTaskAsync(XMRpriceApiURL);
+            }
+            dynamic xmr = JObject.Parse(xmrresult);
+            //
+            string WorldXMRresult;
+            using (var client = new WebClient())
+            {
+                WorldXMRresult = await client.DownloadStringTaskAsync(XMRhashrateApiURL);
+            }
+            dynamic WorldXMRHash = JObject.Parse(WorldXMRresult);
             dynamic p = pool.pool_statistics;
             //
             result.xmrPrice = xmr.EUR + "€  " + xmr.USD + "$ ";
@@ -206,11 +315,11 @@ namespace LibertyMinerGUI
             }
             return MinerHashrate;
         }
-        
         #endregion
-
+        #region PC Functionality
         public static void RunMiner()
         {
+
             // Start the child process.
             Process process = new Process();
             LP_Functionality.LP.xmrig = process;
@@ -221,7 +330,85 @@ namespace LibertyMinerGUI
             process.StartInfo.RedirectStandardOutput = true;
             process.OutputDataReceived += new DataReceivedEventHandler(XMRigOutput_Event);
             process.Start();
+            // Configures the LP Singleton
+            LP.xmrigWatch.Start();
+            LP.running = true;
+            // Output
             process.BeginOutputReadLine();
+        }
+        public static void CloseProcess(string processn)
+        {
+            Process[] processes = Process.GetProcessesByName(processn);
+            foreach (Process process in processes)
+            {
+                process.Kill();
+                process.WaitForExit();
+                process.Dispose();
+            }
+        }
+        public static bool isProcess(string name)
+        {
+            Process[] pname = Process.GetProcessesByName(name);
+            if (pname.Length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        static public void KillMiner()
+        {
+            if (LP.running)
+            {
+                if (LP.xmrig != null)
+                {
+                    if (!LP.xmrig.HasExited)
+                    {
+                        LP.xmrig.CancelOutputRead();
+                        LP.xmrig.Kill();
+                    }
+                }
+            }
+            else if (isProcess("xmrig"))
+            {
+                CloseProcess("xmrig");
+            }
+            // Configures the LP Singleton
+            LP.xmrigWatch.Reset();
+            LP.running = false;
+            LP.xmrigOutput = "XMRIG has exited...";
+        }
+        static public bool isMinerOpen()
+        {
+            if (LP.running)
+            {
+                if (LP.xmrig != null)
+                {
+                    if (!LP.xmrig.HasExited)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if (isProcess("xmrig"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         private static int lineCount = 0;
         private static StringBuilder output = new StringBuilder();
@@ -235,7 +422,7 @@ namespace LibertyMinerGUI
             LP.xmrigOutput = output.ToString();
             Console.WriteLine(output.ToString());
         }
-        static public void MakeConfig()
+        static public void ApplyConfig()
         {
             string config = Resources.config1;
             StringBuilder stringBuilder = new StringBuilder(config);
@@ -252,6 +439,17 @@ namespace LibertyMinerGUI
                 stringBuilder.Replace("tlsconfiguration", "false");
             }
             File.WriteAllText(configPath, stringBuilder.ToString());
+            //
+            if (s.RunOnStartup == true)
+            {
+                Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                key.SetValue("LP Miner GUI", Application.ExecutablePath);
+            }
+            else
+            {
+                Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                key.DeleteValue("LP Miner GUI", false);
+            }
         }
         static public void SaveConfigData(ConfigData config)
         {
@@ -263,7 +461,8 @@ namespace LibertyMinerGUI
             s.PauseOnBattery = config.PauseOnBattery;
             s.RunOnStartup = config.RunOnStartUp;
             s.Save();
-            MakeConfig();
+            //
+            ApplyConfig();
         }
         static public bool IsWalletValid(string address)
         {
@@ -287,57 +486,24 @@ namespace LibertyMinerGUI
                 return false;
             }
         }
-        static public string RAM_Usage()
+        static public string GetCPUtemp()
         {
-            string currentProcessUsage = GetMemoryUsage(Path.GetFileNameWithoutExtension(Application.ExecutablePath));
-            int i;
-            if (int.TryParse(currentProcessUsage, out int n))
+            Double temperature = 0;
+            String instanceName = "";
+            // Query the MSAcpi_ThermalZoneTemperature API
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(@"root\WMI", "SELECT * FROM MSAcpi_ThermalZoneTemperature");
+
+            foreach (ManagementObject obj in searcher.Get())
             {
-                i = int.Parse(currentProcessUsage);
+                temperature = Convert.ToDouble(obj["CurrentTemperature"].ToString());
+                // Convert the value to celsius degrees
+                temperature = (temperature - 2732) / 10.0;
+                instanceName = obj["InstanceName"].ToString();
             }
-            else
-            {
-                i = 0;
-            }
-            if (LP.running)
-            {
-                string xmrigProcessUsage = GetMemoryUsage("xmrig");
-                if (int.TryParse(xmrigProcessUsage, out int d))
-                {
-                    i += int.Parse(currentProcessUsage);
-                }
-                else
-                {
-                    i += 0;
-                }
-            }
-            string result = i + "%";
-            return result;
+            Console.WriteLine(temperature);
+            return temperature.ToString() + " º";
         }
-        static public string GetMemoryUsage(string procname) // KLUDGE but works
-        {
-            try
-            {
-                string fname = Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location);
-                ProcessStartInfo ps = new ProcessStartInfo("tasklist");
-                ps.Arguments = "/fi \"IMAGENAME eq " + procname + ".*\" /FO CSV /NH";
-                ps.RedirectStandardOutput = true;
-                ps.CreateNoWindow = true;
-                ps.UseShellExecute = false;
-                var p = Process.Start(ps);
-                if (p.WaitForExit(1000))
-                {
-                    var s = p.StandardOutput.ReadToEnd().Split('\"');
-                    string t = s[9].Replace("\"", "").Replace("K", "");
-                    string v = t.Split(',')[0];
-                    Console.WriteLine(v);
-                    return v;
-                }
-            }
-            catch { }
-            Console.WriteLine("Unable to get memory usage");
-            return "Unable to get memory usage";
-        }
+        #endregion
     }
 
 }

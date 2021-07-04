@@ -23,7 +23,7 @@ namespace LibertyMinerGUI
         }
         private void batterybtn_Click(object sender, EventArgs e)
         {
-            GraphicalFunctionality.ToggleTrueFalseButton(batteryBtn,Properties.Settings.Default.PauseOnBattery);
+            GraphicalFunctionality.ToggleTrueFalseButton(batteryBtn);
         }
 
         void LoadSettings() 
@@ -58,5 +58,9 @@ namespace LibertyMinerGUI
             form_1.GoToWalletPanel();
         }
 
+        private void startupBtn_Click(object sender, EventArgs e)
+        {
+            GraphicalFunctionality.ToggleTrueFalseButton(startupBtn);
+        }
     }
 }

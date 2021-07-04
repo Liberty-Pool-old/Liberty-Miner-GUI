@@ -30,7 +30,7 @@ namespace LibertyMinerGUI
         void LoadData()
         {
             CopyWalletButton.Text = "Copy:" + WalletAddress;
-            if (Stats_Panel.Visible) LoadStats();
+            if (Stats_Panel.Visible) LoadStatsAsync();
             if (ConsolePanel.Visible) LoadConsole();
             //
             if (LP_Functionality.LP.running) RunCloseButton.Image = Properties.Resources.stop;
@@ -42,13 +42,35 @@ namespace LibertyMinerGUI
             XmrigOutput.SelectionStart = XmrigOutput.Text.Length + 1;
             XmrigOutput.ScrollToCaret();
         }
-        void LoadStats()
+        async Task LoadStatsAsync()
         {
-            WalletData walletData = LP_Functionality.FetchWalletData(WalletAddress);
-            HashLbl.Text = walletData.Hashes;
-            PaidLbl.Text = walletData.Paid;
-            PendingLbl.Text = walletData.Pending;
-            RAMlbl.Text = LP_Functionality.RAM_Usage();
+            if (await LP_Functionality.InternetConnectionAvailableAsync())
+            {
+                LP_Functionality.FetchWalletData(WalletAddress);
+                WalletData walletData = LP_Functionality.walletData;
+                //
+                if (walletData != null)
+                {
+                    HashLbl.Text = walletData.Hashes;
+                    PaidLbl.Text = walletData.Paid;
+                    PendingLbl.Text = walletData.Pending;
+                }
+            }
+            else 
+            {
+                string error = "Trying to connect to the internet...";
+                HashLbl.Text = error;
+                PaidLbl.Text = error;
+                PendingLbl.Text = error;
+            }
+            RAMlbl.Text = LP_Functionality.TotalMemoryUsagePercentage();
+            CPULbl.Text = LP_Functionality.GetCPUtemp();
+            //
+            string elapsedHours = LP_Functionality.LP.xmrigWatch.Elapsed.Duration().Hours.ToString();
+            string elapsedMins = LP_Functionality.LP.xmrigWatch.Elapsed.Duration().Minutes.ToString();
+            string elapsedSecs = LP_Functionality.LP.xmrigWatch.Elapsed.Duration().Seconds.ToString();
+            string elapsedTime = elapsedHours + ":" + elapsedMins + ":" + elapsedSecs;
+            if (LP_Functionality.LP.running) XMRIG_Duration_Lbl.Text = elapsedTime;
         }
         #endregion
         void OpenPanel(Panel panel)
@@ -68,16 +90,12 @@ namespace LibertyMinerGUI
         }
         async void RunCloseMiner()
         {
-            if (LP_Functionality.LP.running)
+            if (LP_Functionality.isMinerOpen())
             {
-                if (LP_Functionality.LP.xmrig != null)
-                {
-                    if (!LP_Functionality.LP.xmrig.HasExited)
-                    {
-                        LP_Functionality.LP.xmrig.Kill();
-                    }
-                }
-                LP_Functionality.LP.running = false;
+                LP_Functionality.KillMiner();
+                //
+                ConsolePanel.Visible = false;
+                Stats_Panel.Visible = true;
             }
             else
             {
@@ -85,7 +103,6 @@ namespace LibertyMinerGUI
                 //
                 ConsolePanel.Visible = true;
                 Stats_Panel.Visible = false;
-                LP_Functionality.LP.running = true;
             }
         }
 

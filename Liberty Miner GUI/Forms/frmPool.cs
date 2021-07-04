@@ -17,18 +17,31 @@ namespace LibertyMinerGUI
         public frmPool()
         {
             InitializeComponent();
-            LoadData();
+            LoadDataAsync();
             InitTimer();
         }
-        public void LoadData() 
+        public async Task LoadDataAsync()
         {
-            PoolData poolData = LP_Functionality.FetchPoolData();
-            BlocksFLbl.Text = poolData.BlocksFound.ToString();
-            xmrPriceLbl.Text = poolData.xmrPrice.ToString();
-            TotalPaymentsLbl.Text = poolData.TotalPayments.ToString();
-            WorldHashrateLbl.Text = poolData.WorldXMRHashrate;
-            totalHashesLbl.Text = poolData.TotalPoolHashrate;
-            PoolHashLbl.Text = poolData.PoolHashrate;
+            if (await LP_Functionality.InternetConnectionAvailableAsync())
+            {
+                PoolData poolData = await LP_Functionality.FetchPoolDataAsync();
+                BlocksFLbl.Text = poolData.BlocksFound.ToString();
+                xmrPriceLbl.Text = poolData.xmrPrice.ToString();
+                TotalPaymentsLbl.Text = poolData.TotalPayments.ToString();
+                WorldHashrateLbl.Text = poolData.WorldXMRHashrate;
+                totalHashesLbl.Text = poolData.TotalPoolHashrate;
+                PoolHashLbl.Text = poolData.PoolHashrate;
+            }
+            else 
+            {
+                string error = "Trying to connect to the internet...";
+                BlocksFLbl.Text = error;
+                xmrPriceLbl.Text = error;
+                TotalPaymentsLbl.Text = error;
+                WorldHashrateLbl.Text = error;
+                totalHashesLbl.Text = error;
+                PoolHashLbl.Text = error;
+            }
         }
         #region BACKGROUND WORKER
         private Timer timer1;
@@ -42,7 +55,7 @@ namespace LibertyMinerGUI
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            LoadData();
+            LoadDataAsync();
         }
         #endregion
     }

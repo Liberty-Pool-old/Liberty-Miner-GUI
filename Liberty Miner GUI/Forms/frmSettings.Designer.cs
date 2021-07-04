@@ -235,6 +235,7 @@
             this.startupBtn.Text = "False";
             this.startupBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.startupBtn.UseVisualStyleBackColor = false;
+            this.startupBtn.Click += new System.EventHandler(this.startupBtn_Click);
             // 
             // walletPanel
             // 

@@ -10,16 +10,14 @@ namespace LibertyMinerGUI
 {
     class GraphicalFunctionality
     {
-        public static void ToggleTrueFalseButton(Button button, bool boolean)
+        public static void ToggleTrueFalseButton(Button button)
         {
             if (button.Text == "True")
             {
-                boolean = false;
                 button.Text = "False";
             }
             else
             {
-                boolean = true;
                 button.Text = "True";
             }
         }
