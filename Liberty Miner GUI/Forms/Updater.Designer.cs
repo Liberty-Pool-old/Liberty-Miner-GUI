@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Updater));
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.StatusTxt = new System.Windows.Forms.TextBox();
             this.YesBtn = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -124,10 +125,11 @@
             this.Controls.Add(this.StatusTxt);
             this.Controls.Add(this.progressBar1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(8);
             this.Name = "Updater";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "trash";
+            this.Text = "LP Updater";
             this.Load += new System.EventHandler(this.Updater_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

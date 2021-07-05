@@ -40,7 +40,7 @@ namespace LibertyMinerGUI
         {
             return LP_Updated;
         }
-#endregion
+        #endregion
         #region Check
         // Here we check whether we should update any component:
         private void Updater_Load(object sender, EventArgs e)
@@ -131,7 +131,14 @@ namespace LibertyMinerGUI
             settings.Save();
             LP_Updated = true;
             // Execute LP GUI
-            Process.Start(Path.Combine(Application.StartupPath, "update.exe"));
+            try
+            {
+                Process.Start(Path.Combine(Application.StartupPath, "update.exe"));
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
         }
         #endregion
         #region XMRIG Download
