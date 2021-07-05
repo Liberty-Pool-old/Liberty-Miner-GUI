@@ -81,21 +81,29 @@ namespace LibertyMinerGUI
         #endregion
         frmWallet frmwallet;
         frmPool frmPool;
+        frmAbout frmAbout;
+        frmSettings frmSettings;
         frmContactUs frmContactUs;
+        public Updater updater = new Updater();
 
         public void CloseBWSubForms() 
         {
-            if (frmwallet != null)
-            {
-                frmwallet.Hide();
-
-            }
+            if (frmwallet != null) frmwallet.Close();
+            if (frmAbout != null) frmAbout.Close();
+            if (frmSettings != null) frmSettings.Close();
             if (frmPool != null) frmPool.Close();
             if (frmContactUs != null) frmContactUs.Close();
         }
         public Form1()
         {
             InitializeComponent();
+            //
+            updater.ShowDialog();
+            updater.Close();
+            _Close += new FunctionDelegate(CloseForm);
+            //
+            LP_Functionality.LP.form1 = this;
+            //
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             pnlNav.Height = btnWallet.Height;
             pnlNav.Top = btnWallet.Top;
@@ -245,5 +253,14 @@ namespace LibertyMinerGUI
         {
             LP_Functionality.KillMiner();
         }
+        #region Thread Calls
+        public delegate void FunctionDelegate();
+        public FunctionDelegate _Close;
+        void CloseForm() 
+        {
+            CloseBWSubForms();
+            Close();
+        }
+        #endregion
     }
 }

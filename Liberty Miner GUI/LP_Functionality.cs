@@ -18,12 +18,18 @@ using System.Drawing;
 using System.Globalization;
 using Plugin.Connectivity;
 using Microsoft.Win32;
+using System.ComponentModel;
 
 namespace LibertyMinerGUI
 {
     public class LP_Functionality
     {
         #region Variables
+        //
+        public static string xmrigDownloadURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/xmrig-download";
+        public static string LP_DownloadURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/xmrig-download";
+        public static string LP_VersionURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/lp-version-link";
+        //
         public static LP_Functionality LP = new LP_Functionality();
         public static string ContactApiURL = "https://e.widgetbot.io/channels/758798463428329532/785524459779915777/?preset=crate&amp;api=f2b47969-cca9-4fa9-af9c-1b46b929c144";
         public static string PoolApiURL = "https://liberty-pool.com/api/pool/stats";
@@ -63,11 +69,12 @@ namespace LibertyMinerGUI
          "~c29s",
         };
         public static WalletData walletData;
-        //
+        // LP's Singleton
         public Stopwatch xmrigWatch = new Stopwatch();
         public bool running = false;
         public Process xmrig;
         public frmWallet frmwallet;
+        public Form1 form1;
         public string xmrigOutput = "XMRIG is not running...";
         #endregion
         #region Get Data
@@ -317,9 +324,17 @@ namespace LibertyMinerGUI
         }
         #endregion
         #region PC Functionality
+
         public static void RunMiner()
         {
-
+            // Check if miner/config exists
+            ApplyConfig();
+            if (!MinerExists()) 
+            {
+                Form1 form1 = new Form1();
+                form1.Show();
+                LP.form1.Invoke(LP.form1._Close);
+            }
             // Start the child process.
             Process process = new Process();
             LP_Functionality.LP.xmrig = process;
@@ -379,6 +394,19 @@ namespace LibertyMinerGUI
             LP.xmrigWatch.Reset();
             LP.running = false;
             LP.xmrigOutput = "XMRIG has exited...";
+        }
+        static public bool MinerExists()
+        {
+            string miner = LP_Functionality.xmrigPath;
+            string winsys = Path.Combine(Application.StartupPath, "WinRing0x64.sys");
+            if (File.Exists(miner) && File.Exists(winsys))
+            {
+                return true;
+            }
+            else 
+            {
+                return false; 
+            }
         }
         static public bool isMinerOpen()
         {

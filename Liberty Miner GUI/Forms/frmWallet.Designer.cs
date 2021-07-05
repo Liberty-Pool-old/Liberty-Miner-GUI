@@ -54,7 +54,7 @@
             this.StatsButton = new System.Windows.Forms.Button();
             this.RunCloseButton = new System.Windows.Forms.Button();
             this.ConsolePanel = new System.Windows.Forms.Panel();
-            this.XmrigOutput = new System.Windows.Forms.RichTextBox();
+            this.consoleControl1 = new ConsoleControl.ConsoleControl();
             this.ConsoleTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PaymentsPanel = new System.Windows.Forms.Panel();
@@ -74,9 +74,9 @@
             // 
             // CopyWalletButton
             // 
-            resources.ApplyResources(this.CopyWalletButton, "CopyWalletButton");
             this.CopyWalletButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
             this.CopyWalletButton.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.CopyWalletButton, "CopyWalletButton");
             this.CopyWalletButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.CopyWalletButton.Name = "CopyWalletButton";
             this.CopyWalletButton.UseVisualStyleBackColor = false;
@@ -84,10 +84,10 @@
             // 
             // HashPanel
             // 
-            resources.ApplyResources(this.HashPanel, "HashPanel");
             this.HashPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.HashPanel.Controls.Add(this.HashLbl);
             this.HashPanel.Controls.Add(this.hashTitle);
+            resources.ApplyResources(this.HashPanel, "HashPanel");
             this.HashPanel.Name = "HashPanel";
             // 
             // HashLbl
@@ -104,10 +104,10 @@
             // 
             // PaidPanel
             // 
-            resources.ApplyResources(this.PaidPanel, "PaidPanel");
             this.PaidPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.PaidPanel.Controls.Add(this.PaidLbl);
             this.PaidPanel.Controls.Add(this.PaidTitle);
+            resources.ApplyResources(this.PaidPanel, "PaidPanel");
             this.PaidPanel.Name = "PaidPanel";
             // 
             // PaidLbl
@@ -124,10 +124,10 @@
             // 
             // PendingPanel
             // 
-            resources.ApplyResources(this.PendingPanel, "PendingPanel");
             this.PendingPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.PendingPanel.Controls.Add(this.PendingLbl);
             this.PendingPanel.Controls.Add(this.PendingTitle);
+            resources.ApplyResources(this.PendingPanel, "PendingPanel");
             this.PendingPanel.Name = "PendingPanel";
             // 
             // PendingLbl
@@ -144,10 +144,10 @@
             // 
             // RAMpanel
             // 
-            resources.ApplyResources(this.RAMpanel, "RAMpanel");
             this.RAMpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.RAMpanel.Controls.Add(this.RAMlbl);
             this.RAMpanel.Controls.Add(this.RAMtitle);
+            resources.ApplyResources(this.RAMpanel, "RAMpanel");
             this.RAMpanel.Name = "RAMpanel";
             // 
             // RAMlbl
@@ -164,10 +164,10 @@
             // 
             // XMRIG_Duration_Panel
             // 
-            resources.ApplyResources(this.XMRIG_Duration_Panel, "XMRIG_Duration_Panel");
             this.XMRIG_Duration_Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.XMRIG_Duration_Panel.Controls.Add(this.XMRIG_Duration_Lbl);
             this.XMRIG_Duration_Panel.Controls.Add(this.XMRIG_Duration_Title);
+            resources.ApplyResources(this.XMRIG_Duration_Panel, "XMRIG_Duration_Panel");
             this.XMRIG_Duration_Panel.Name = "XMRIG_Duration_Panel";
             // 
             // XMRIG_Duration_Lbl
@@ -184,10 +184,10 @@
             // 
             // CPUpanel
             // 
-            resources.ApplyResources(this.CPUpanel, "CPUpanel");
             this.CPUpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.CPUpanel.Controls.Add(this.CPULbl);
             this.CPUpanel.Controls.Add(this.CPUtitle);
+            resources.ApplyResources(this.CPUpanel, "CPUpanel");
             this.CPUpanel.Name = "CPUpanel";
             // 
             // CPULbl
@@ -204,7 +204,6 @@
             // 
             // Stats_Panel
             // 
-            resources.ApplyResources(this.Stats_Panel, "Stats_Panel");
             this.Stats_Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.Stats_Panel.Controls.Add(this.CPUpanel);
             this.Stats_Panel.Controls.Add(this.XMRIG_Duration_Panel);
@@ -212,13 +211,14 @@
             this.Stats_Panel.Controls.Add(this.PendingPanel);
             this.Stats_Panel.Controls.Add(this.PaidPanel);
             this.Stats_Panel.Controls.Add(this.HashPanel);
+            resources.ApplyResources(this.Stats_Panel, "Stats_Panel");
             this.Stats_Panel.Name = "Stats_Panel";
             // 
             // ConsoleButton
             // 
-            resources.ApplyResources(this.ConsoleButton, "ConsoleButton");
             this.ConsoleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ConsoleButton.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.ConsoleButton, "ConsoleButton");
             this.ConsoleButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.ConsoleButton.Image = global::LibertyMinerGUI.Properties.Resources.code;
             this.ConsoleButton.Name = "ConsoleButton";
@@ -227,9 +227,9 @@
             // 
             // StatsButton
             // 
-            resources.ApplyResources(this.StatsButton, "StatsButton");
             this.StatsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.StatsButton.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.StatsButton, "StatsButton");
             this.StatsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.StatsButton.Image = global::LibertyMinerGUI.Properties.Resources.statistics;
             this.StatsButton.Name = "StatsButton";
@@ -238,9 +238,9 @@
             // 
             // RunCloseButton
             // 
-            resources.ApplyResources(this.RunCloseButton, "RunCloseButton");
             this.RunCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.RunCloseButton.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.RunCloseButton, "RunCloseButton");
             this.RunCloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.RunCloseButton.Image = global::LibertyMinerGUI.Properties.Resources.play;
             this.RunCloseButton.Name = "RunCloseButton";
@@ -249,19 +249,21 @@
             // 
             // ConsolePanel
             // 
-            resources.ApplyResources(this.ConsolePanel, "ConsolePanel");
             this.ConsolePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ConsolePanel.Controls.Add(this.XmrigOutput);
+            this.ConsolePanel.Controls.Add(this.consoleControl1);
             this.ConsolePanel.Controls.Add(this.ConsoleTitle);
+            resources.ApplyResources(this.ConsolePanel, "ConsolePanel");
             this.ConsolePanel.Name = "ConsolePanel";
             // 
-            // XmrigOutput
+            // consoleControl1
             // 
-            resources.ApplyResources(this.XmrigOutput, "XmrigOutput");
-            this.XmrigOutput.BackColor = System.Drawing.Color.Black;
-            this.XmrigOutput.ForeColor = System.Drawing.Color.Lime;
-            this.XmrigOutput.Name = "XmrigOutput";
-            this.XmrigOutput.ReadOnly = true;
+            this.consoleControl1.BackColor = System.Drawing.Color.Black;
+            this.consoleControl1.IsInputEnabled = true;
+            resources.ApplyResources(this.consoleControl1, "consoleControl1");
+            this.consoleControl1.Name = "consoleControl1";
+            this.consoleControl1.SendKeyboardCommandsToProcess = false;
+            this.consoleControl1.ShowDiagnostics = false;
+            this.consoleControl1.Enter += new System.EventHandler(this.consoleControl1_Enter);
             // 
             // ConsoleTitle
             // 
@@ -277,16 +279,16 @@
             // 
             // PaymentsPanel
             // 
-            resources.ApplyResources(this.PaymentsPanel, "PaymentsPanel");
             this.PaymentsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.PaymentsPanel.Controls.Add(this.label1);
+            resources.ApplyResources(this.PaymentsPanel, "PaymentsPanel");
             this.PaymentsPanel.Name = "PaymentsPanel";
             // 
             // GraphPanel
             // 
-            resources.ApplyResources(this.GraphPanel, "GraphPanel");
             this.GraphPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.GraphPanel.Controls.Add(this.label2);
+            resources.ApplyResources(this.GraphPanel, "GraphPanel");
             this.GraphPanel.Name = "GraphPanel";
             // 
             // label2
@@ -300,9 +302,9 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.Controls.Add(this.ConsolePanel);
             this.Controls.Add(this.Stats_Panel);
             this.Controls.Add(this.GraphPanel);
-            this.Controls.Add(this.ConsolePanel);
             this.Controls.Add(this.PaymentsPanel);
             this.Controls.Add(this.ConsoleButton);
             this.Controls.Add(this.StatsButton);
@@ -363,6 +365,6 @@
         private System.Windows.Forms.Panel PaymentsPanel;
         private System.Windows.Forms.Panel GraphPanel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox XmrigOutput;
+        private ConsoleControl.ConsoleControl consoleControl1;
     }
 }

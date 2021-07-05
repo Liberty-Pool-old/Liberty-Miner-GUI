@@ -95,5 +95,29 @@ namespace LibertyMinerGUI.Properties {
                 this["RunOnStartup"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string XMRIG_Download_Link {
+            get {
+                return ((string)(this["XMRIG_Download_Link"]));
+            }
+            set {
+                this["XMRIG_Download_Link"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.0")]
+        public string LP_Version {
+            get {
+                return ((string)(this["LP_Version"]));
+            }
+            set {
+                this["LP_Version"] = value;
+            }
+        }
     }
 }

@@ -193,6 +193,16 @@ namespace LibertyMinerGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] GetScreenResolution {
+            get {
+                object obj = ResourceManager.GetObject("GetScreenResolution", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap graph_report {

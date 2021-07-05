@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibertyMinerGUI;
 using LibertyMinerGUI.Data;
 
 namespace LibertyMinerGUI
@@ -20,6 +19,7 @@ namespace LibertyMinerGUI
         public frmWallet()
         {
             InitializeComponent();
+            consoleControl1.InternalRichTextBox.ForeColor = Color.Lime;
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             OpenPanel(Stats_Panel);
             LP_Functionality.LP.frmwallet = this;
@@ -38,9 +38,12 @@ namespace LibertyMinerGUI
         }
         public void LoadConsole()
         {
-            XmrigOutput.Text = LP_Functionality.LP.xmrigOutput;
-            XmrigOutput.SelectionStart = XmrigOutput.Text.Length + 1;
-            XmrigOutput.ScrollToCaret();
+            consoleControl1.InternalRichTextBox.Text = LP_Functionality.LP.xmrigOutput;
+        }
+        // This is func is done in order to prevent the console reseting bug
+        private void consoleControl1_Enter(object sender, EventArgs e)
+        {
+            ActiveControl = ConsolePanel;
         }
         async Task LoadStatsAsync()
         {
@@ -162,5 +165,7 @@ namespace LibertyMinerGUI
             OpenPanel(PaymentsPanel);
         }
         #endregion
+
+
     }
 }
