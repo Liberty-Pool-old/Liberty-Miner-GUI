@@ -16,7 +16,6 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Globalization;
-using Plugin.Connectivity;
 using Microsoft.Win32;
 using System.ComponentModel;
 
@@ -180,8 +179,23 @@ namespace LibertyMinerGUI
         }
         static public async Task<bool> InternetConnectionAvailableAsync()
         {
-            bool canReach = await CrossConnectivity.Current.IsRemoteReachable("google.com");
-            return canReach;
+            Ping myPing = new Ping();
+            try
+            {
+                var pingReply = await myPing.SendPingAsync("google.com", 3000, new byte[32], new PingOptions(64, true));
+                if (pingReply.Status == IPStatus.Success)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
         #region Data Requests
         public static string WalletStatsApiUrl()
@@ -269,6 +283,7 @@ namespace LibertyMinerGUI
         #endregion
         static public string ConvertRawGigaHashes(string Hashes)
         {
+            Hashes = Hashes.Split('.')[0];
             if (Hashes == null)
                 return "No hashes yet...";
             double hash = Math.Round(float.Parse(Hashes), 1);
@@ -279,7 +294,7 @@ namespace LibertyMinerGUI
         }
         static public string ConvertRawHashToCorrespondentHash(string Hashes)
         {
-            // Console.WriteLine(Hashes);
+            Hashes = Hashes.Split('.')[0];
             if (Hashes == null)
                 return "No hashrates yet...";
             double hash = Math.Round(float.Parse(Hashes), 1);

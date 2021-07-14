@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace LibertyMinerGUI
 {
-    
+
     public partial class Form1 : Form
     {
         #region UI Movable
@@ -86,7 +86,7 @@ namespace LibertyMinerGUI
         frmContactUs frmContactUs;
         public Updater updater = new Updater();
 
-        public void CloseBWSubForms() 
+        public void CloseBWSubForms()
         {
             if (frmwallet != null) frmwallet.Close();
             if (frmAbout != null) frmAbout.Close();
@@ -115,17 +115,17 @@ namespace LibertyMinerGUI
             frmWallet_vrb.FormBorderStyle = FormBorderStyle.None;
             this.pnlFormLoader.Controls.Add(frmWallet_vrb);
             frmWallet_vrb.Show();
-            //
+            ///*
             if (LP_Functionality.IsResolutionRightForHighDPH())
             {
                 System.Windows.SystemParameters.PrimaryScreenWidth.ToString();
-            }
+            }//*/
         }
         private void btnWallet_Click(object sender, EventArgs e)
         {
             GoToWalletPanel();
         }
-        public void GoToWalletPanel() 
+        public void GoToWalletPanel()
         {
             CloseBWSubForms();
             //
@@ -256,7 +256,7 @@ namespace LibertyMinerGUI
         #region Thread Calls
         public delegate void FunctionDelegate();
         public FunctionDelegate _Close;
-        void CloseForm() 
+        void CloseForm()
         {
             CloseBWSubForms();
             Close();
