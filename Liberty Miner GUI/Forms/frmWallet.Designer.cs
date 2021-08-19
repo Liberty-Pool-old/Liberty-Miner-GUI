@@ -58,8 +58,11 @@
             this.ConsoleTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PaymentsPanel = new System.Windows.Forms.Panel();
+            this.payments_refresh_btn = new System.Windows.Forms.Button();
+            this.payments_displayconsole = new ConsoleControl.ConsoleControl();
             this.GraphPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.PaymentButton = new System.Windows.Forms.Button();
             this.HashPanel.SuspendLayout();
             this.PaidPanel.SuspendLayout();
             this.PendingPanel.SuspendLayout();
@@ -280,9 +283,31 @@
             // PaymentsPanel
             // 
             this.PaymentsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.PaymentsPanel.Controls.Add(this.payments_refresh_btn);
+            this.PaymentsPanel.Controls.Add(this.payments_displayconsole);
             this.PaymentsPanel.Controls.Add(this.label1);
             resources.ApplyResources(this.PaymentsPanel, "PaymentsPanel");
             this.PaymentsPanel.Name = "PaymentsPanel";
+            // 
+            // payments_refresh_btn
+            // 
+            this.payments_refresh_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.payments_refresh_btn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.payments_refresh_btn, "payments_refresh_btn");
+            this.payments_refresh_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.payments_refresh_btn.Image = global::LibertyMinerGUI.Properties.Resources.refresh;
+            this.payments_refresh_btn.Name = "payments_refresh_btn";
+            this.payments_refresh_btn.UseVisualStyleBackColor = false;
+            this.payments_refresh_btn.Click += new System.EventHandler(this.payments_refresh_btn_Click);
+            // 
+            // payments_displayconsole
+            // 
+            this.payments_displayconsole.BackColor = System.Drawing.Color.Black;
+            this.payments_displayconsole.IsInputEnabled = true;
+            resources.ApplyResources(this.payments_displayconsole, "payments_displayconsole");
+            this.payments_displayconsole.Name = "payments_displayconsole";
+            this.payments_displayconsole.SendKeyboardCommandsToProcess = false;
+            this.payments_displayconsole.ShowDiagnostics = false;
             // 
             // GraphPanel
             // 
@@ -297,15 +322,27 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Name = "label2";
             // 
+            // PaymentButton
+            // 
+            this.PaymentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.PaymentButton.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.PaymentButton, "PaymentButton");
+            this.PaymentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.PaymentButton.Image = global::LibertyMinerGUI.Properties.Resources.us_dollar;
+            this.PaymentButton.Name = "PaymentButton";
+            this.PaymentButton.UseVisualStyleBackColor = false;
+            this.PaymentButton.Click += new System.EventHandler(this.PaymentButton_Click);
+            // 
             // frmWallet
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.Controls.Add(this.PaymentButton);
+            this.Controls.Add(this.PaymentsPanel);
             this.Controls.Add(this.ConsolePanel);
             this.Controls.Add(this.Stats_Panel);
             this.Controls.Add(this.GraphPanel);
-            this.Controls.Add(this.PaymentsPanel);
             this.Controls.Add(this.ConsoleButton);
             this.Controls.Add(this.StatsButton);
             this.Controls.Add(this.CopyWalletButton);
@@ -366,5 +403,8 @@
         private System.Windows.Forms.Panel GraphPanel;
         private System.Windows.Forms.Label label2;
         private ConsoleControl.ConsoleControl consoleControl1;
+        private ConsoleControl.ConsoleControl payments_displayconsole;
+        private System.Windows.Forms.Button payments_refresh_btn;
+        private System.Windows.Forms.Button PaymentButton;
     }
 }

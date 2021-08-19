@@ -97,29 +97,29 @@ namespace LibertyMinerGUI
         public Form1()
         {
             InitializeComponent();
-            //
+            // Show updater
             updater.ShowDialog();
             updater.Close();
             _Close += new FunctionDelegate(CloseForm);
-            //
+            // LP Singleton setting this form1 to its variable
             LP_Functionality.LP.form1 = this;
-            //
+            // Setting up Main Form
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             pnlNav.Height = btnWallet.Height;
             pnlNav.Top = btnWallet.Top;
             pnlNav.Left = btnWallet.Left;
-
+            // Setting up Wallet Panel
             lbltitle.Text = "Wallet Stats:";
             frmWallet frmWallet_vrb = new frmWallet() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmwallet = frmWallet_vrb;
             frmWallet_vrb.FormBorderStyle = FormBorderStyle.None;
             this.pnlFormLoader.Controls.Add(frmWallet_vrb);
             frmWallet_vrb.Show();
-            ///*
+            // Screen Resolution & DPI settings
             if (LP_Functionality.IsResolutionRightForHighDPH())
             {
                 System.Windows.SystemParameters.PrimaryScreenWidth.ToString();
-            }//*/
+            }
         }
         private void btnWallet_Click(object sender, EventArgs e)
         {

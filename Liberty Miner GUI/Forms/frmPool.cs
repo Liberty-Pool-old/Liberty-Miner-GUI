@@ -29,7 +29,7 @@ namespace LibertyMinerGUI
                 xmrPriceLbl.Text = poolData.xmrPrice.ToString();
                 TotalPaymentsLbl.Text = poolData.TotalPayments.ToString();
                 WorldHashrateLbl.Text = poolData.WorldXMRHashrate;
-                totalHashesLbl.Text = poolData.TotalPoolHashrate;
+                nextPaymentDateLbl.Text = LP_Functionality.GetNextPaymentDate();
                 PoolHashLbl.Text = poolData.PoolHashrate;
             }
             else 
@@ -39,7 +39,7 @@ namespace LibertyMinerGUI
                 xmrPriceLbl.Text = error;
                 TotalPaymentsLbl.Text = error;
                 WorldHashrateLbl.Text = error;
-                totalHashesLbl.Text = error;
+                nextPaymentDateLbl.Text = error;
                 PoolHashLbl.Text = error;
             }
         }

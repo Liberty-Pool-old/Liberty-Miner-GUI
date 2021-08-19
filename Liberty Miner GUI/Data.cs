@@ -19,10 +19,10 @@ namespace LibertyMinerGUI.Data
         public string Pending;
         public string Paid;
     }
-    public class WalletPaymentsData 
+    public class WalletPayment
     {
-        public List<String> Times;
-        public List<String> XMRamount;
+        public string Time { get; set; }
+        public string Amount { get; set; }
     }
     public class PoolData
     {

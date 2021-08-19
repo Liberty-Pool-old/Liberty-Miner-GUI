@@ -19,14 +19,63 @@ namespace LibertyMinerGUI
         public frmWallet()
         {
             InitializeComponent();
+            Initialize_UI();
+            LoadPayments();
+            LoadData();
+            InitTimer();
+        }
+        #region UI
+        void Initialize_UI()
+        {
             consoleControl1.InternalRichTextBox.ForeColor = Color.Lime;
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             OpenPanel(Stats_Panel);
             LP_Functionality.LP.frmwallet = this;
-            LoadData();
-            InitTimer();
         }
-        #region Data Loading
+        void OpenPanel(Panel panel)
+        {
+            List<Panel> panels = new List<Panel>() { ConsolePanel, Stats_Panel, PaymentsPanel, GraphPanel };
+            foreach (Panel p in panels)
+            {
+                if (p.Equals(panel))
+                {
+                    p.Visible = true;
+                }
+                else
+                {
+                    p.Visible = false;
+                }
+            }
+        }
+        #region Payments
+        void LoadPayments()
+        {
+            RichTextBox box = payments_displayconsole.InternalRichTextBox;
+            box.Text = "Loading...";
+            List<WalletPayment> payments = LP_Functionality.GetWalletPayments();
+            if (payments[0].Amount == "Nein") 
+            {
+                box.Clear();
+                LP_Functionality.Print(box, "No payments yet 😭 ");
+                LP_Functionality.Print(box, "If you wanna know when are going to be the next payments, you can go to the Pool Section and you can check it there 😀 ");
+            }
+            else
+            {
+                box.Clear();
+                foreach (WalletPayment payment in payments)
+                {
+                    LP_Functionality.Print(box, payment.Time + ": " + payment.Amount);
+                    LP_Functionality.Print(box, "-------------------------------------------------");
+                }
+            }
+        }
+        private void payments_refresh_btn_Click(object sender, EventArgs e)
+        {
+            LoadPayments();
+        }
+        #endregion
+        #endregion
+        #region Data Syncing/Loading
         void LoadData()
         {
             CopyWalletButton.Text = "Copy:" + WalletAddress;
@@ -34,7 +83,6 @@ namespace LibertyMinerGUI
             if (ConsolePanel.Visible) LoadConsole();
             //
             if (LP_Functionality.LP.running) RunCloseButton.Image = Properties.Resources.stop;
-
         }
         public void LoadConsole()
         {
@@ -59,7 +107,7 @@ namespace LibertyMinerGUI
                     PendingLbl.Text = walletData.Pending;
                 }
             }
-            else 
+            else
             {
                 string error = "Trying to connect to the internet...";
                 HashLbl.Text = error;
@@ -76,39 +124,19 @@ namespace LibertyMinerGUI
             if (LP_Functionality.LP.running) XMRIG_Duration_Lbl.Text = elapsedTime;
         }
         #endregion
-        void OpenPanel(Panel panel)
-        {
-            List<Panel> panels = new List<Panel>() { ConsolePanel, Stats_Panel, PaymentsPanel, GraphPanel };
-            foreach (Panel p in panels)
-            {
-                if (p.Equals(panel))
-                {
-                    p.Visible = true;
-                }
-                else
-                {
-                    p.Visible = false;
-                }
-            }
-        }
         async void RunCloseMiner()
         {
             if (LP_Functionality.isMinerOpen())
             {
                 LP_Functionality.KillMiner();
-                //
-                ConsolePanel.Visible = false;
-                Stats_Panel.Visible = true;
             }
             else
             {
                 await Task.Run(() => LP_Functionality.RunMiner());
                 //
-                ConsolePanel.Visible = true;
-                Stats_Panel.Visible = false;
+                OpenPanel(ConsolePanel);
             }
         }
-
         #region BACKGROUND WORKER
         private Timer timer1;
         public void InitTimer()
@@ -124,7 +152,6 @@ namespace LibertyMinerGUI
             LoadData();
         }
         #endregion
-
         #region Buttons
         private void CopyWalletButton_Click(object sender, EventArgs e)
         {
@@ -132,8 +159,10 @@ namespace LibertyMinerGUI
         }
         private void RunClose_Click(object sender, EventArgs e)
         {
+            // Resources:
             Image image1 = Properties.Resources.stop;
             Image image2 = Properties.Resources.play;
+            //
             switch (LP_Functionality.LP.running)
             {
                 case true:
@@ -149,23 +178,23 @@ namespace LibertyMinerGUI
         {
             OpenPanel(Stats_Panel);
         }
-
         private void ConsoleButton_Click(object sender, EventArgs e)
         {
             OpenPanel(ConsolePanel);
         }
-
         private void GraphButton_Click(object sender, EventArgs e)
         {
             OpenPanel(GraphPanel);
         }
-
         private void PaymentsButton_Click(object sender, EventArgs e)
         {
             OpenPanel(PaymentsPanel);
         }
+        private void PaymentButton_Click(object sender, EventArgs e)
+        {
+            OpenPanel(PaymentsPanel);
+        }
         #endregion
-
 
     }
 }

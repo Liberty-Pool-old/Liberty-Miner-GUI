@@ -18,20 +18,24 @@ using System.Drawing;
 using System.Globalization;
 using Microsoft.Win32;
 using System.ComponentModel;
+using Newtonsoft.Json;
+using System.Web.Script.Serialization;
 
 namespace LibertyMinerGUI
 {
     public class LP_Functionality
     {
         #region Variables
+        // Default settings:
+        public const string LP_VERSION = "1.2";
         //
         public static string xmrigDownloadURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/xmrig-download";
-        public static string LP_DownloadURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/xmrig-download";
+        public static string LP_DownloadURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/lp-dwnld-link";
         public static string LP_VersionURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/lp-version-link";
-        //
+        // APIs &
         public static LP_Functionality LP = new LP_Functionality();
-        public static string ContactApiURL = "https://e.widgetbot.io/channels/758798463428329532/785524459779915777/?preset=crate&amp;api=f2b47969-cca9-4fa9-af9c-1b46b929c144";
         public static string PoolApiURL = "https://liberty-pool.com/api/pool/stats";
+        public static string PoolApiPaymentsURL = "https://liberty-pool.com/api/pool/payments?page=";
         public static string AnnouncementsApiURL = "https://raw.githubusercontent.com/Liberty-Pool/etc/master/Liberty%20Miner%20GUI/ancn.txt";
         public static string XMRpriceApiURL = "https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=BTC,USD,EUR";
         public static string XMRhashrateApiURL = "https://localmonero.co/blocks/api/get_stats";
@@ -114,6 +118,56 @@ namespace LibertyMinerGUI
             return Math.Round(y, 2) + " %";
         }
         #endregion
+        #region PC-Level & Low-Level
+        static public async Task<bool> InternetConnectionAvailableAsync()
+        {
+            Ping myPing = new Ping();
+            try
+            {
+                var pingReply = await myPing.SendPingAsync("google.com", 3000, new byte[32], new PingOptions(64, true));
+                if (pingReply.Status == IPStatus.Success)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        static public string GetCPUtemp()
+        {
+            Double temperature = 0;
+            String instanceName = "";
+            // Query the MSAcpi_ThermalZoneTemperature API
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(@"root\WMI", "SELECT * FROM MSAcpi_ThermalZoneTemperature");
+
+            foreach (ManagementObject obj in searcher.Get())
+            {
+                temperature = Convert.ToDouble(obj["CurrentTemperature"].ToString());
+                // Convert the value to celsius degrees
+                temperature = (temperature - 2732) / 10.0;
+                instanceName = obj["InstanceName"].ToString();
+            }
+            Console.WriteLine(temperature);
+            return temperature.ToString() + " º";
+        }
+        public static bool isProcess(string name)
+        {
+            Process[] pname = Process.GetProcessesByName(name);
+            if (pname.Length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         static public bool IsRunning(Process process)
         {
             if (process == null)
@@ -140,6 +194,16 @@ namespace LibertyMinerGUI
             compiler.StartInfo.RedirectStandardOutput = true;
             compiler.Start();
             return compiler.StandardOutput.ReadToEnd();
+        }
+        public static DateTime TimeStampToDateTime(string TimeStamp)
+        {
+            long l1 = (long)Convert.ToDouble(TimeStamp);
+            return new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(l1).ToUniversalTime();
+        }
+        public static DateTime JavaTimeStampToDateTime(string TimeStamp)
+        {
+            long l1 = (long)Convert.ToDouble(TimeStamp);
+            return new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(l1).ToUniversalTime();
         }
         static public bool IsResolutionRightForHighDPH()
         {
@@ -177,13 +241,62 @@ namespace LibertyMinerGUI
                 return false;
             }
         }
-        static public async Task<bool> InternetConnectionAvailableAsync()
+        #endregion
+        static public bool MinerExists()
         {
-            Ping myPing = new Ping();
-            try
+            string miner = LP_Functionality.xmrigPath;
+            string winsys = Path.Combine(Application.StartupPath, "WinRing0x64.sys");
+            if (File.Exists(miner) && File.Exists(winsys))
             {
-                var pingReply = await myPing.SendPingAsync("google.com", 3000, new byte[32], new PingOptions(64, true));
-                if (pingReply.Status == IPStatus.Success)
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        static public bool isMinerOpen()
+        {
+            if (LP.running)
+            {
+                if (LP.xmrig != null)
+                {
+                    if (!LP.xmrig.HasExited)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if (isProcess("xmrig"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        static public string WalletPaymentsAPI()
+        {
+            return "https://liberty-pool.com/api/miner/" + Settings.Default.Wallet + "/payments";
+        }
+        static public bool IsWalletValid(string address)
+        {
+            if (address.Length == 95)
+            {
+                if (address[0] == '4' || address[0] == '8'
+                || Enumerable.Range(0, 9).Contains(address[1])
+                || address[1] == 'A' || address[1] == 'B'
+                )
                 {
                     return true;
                 }
@@ -191,13 +304,63 @@ namespace LibertyMinerGUI
                 {
                     return false;
                 }
+
             }
-            catch (Exception e)
+            else
             {
                 return false;
             }
         }
-        #region Data Requests
+
+        #region API Data Fetch Requests
+        public static List<WalletPayment> GetWalletPayments()
+        {
+            string apiresult = DownloadString(WalletPaymentsAPI());
+            // If there's no payments:
+            if(apiresult == "[]" || apiresult.Contains("amount")) 
+            {
+            List<WalletPayment> payments = new List<WalletPayment>();
+                payments.Add(new WalletPayment());
+                payments[0].Amount = "Nein";
+                return payments;
+            }
+            //Adapting API to LP GUI
+            StringBuilder stringBuilder = new StringBuilder(apiresult);
+            stringBuilder.Replace("ts", "Time");
+            stringBuilder.Replace("amount", "Amount");
+            string json = stringBuilder.ToString();
+            // Deserializing json data to WalletPayment
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            List<WalletPayment> paymentObjects = js.Deserialize<List<WalletPayment>>(json);
+            //preparing the output...
+            List<WalletPayment> result = new List<WalletPayment>();
+            foreach (WalletPayment w in paymentObjects)
+            {
+                w.Time = TimeStampToDateTime(w.Time).ToString();
+                w.Amount = (float.Parse(w.Amount) / Math.Pow(10, 12)).ToString() + " XMR";
+                result.Add(w);
+            }
+            return result;
+        }
+        public static string GetNextPaymentDate()
+        {
+            string apiresult = DownloadString(PoolApiPaymentsURL);
+            //Adapting API to LP GUI
+            StringBuilder stringBuilder = new StringBuilder(apiresult);
+            stringBuilder.Replace("ts", "Time");
+            stringBuilder.Replace("amount", "Amount");
+            string json = stringBuilder.ToString();
+            // Deserializing json data to WalletPayment
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            List<WalletPayment> paymentObjects = js.Deserialize<List<WalletPayment>>(json);
+            //preparing the output...
+            string result = JavaTimeStampToDateTime(paymentObjects[0].Time).AddHours(24).ToString();
+            return result;
+        }
+        public static void print(string message) 
+        {
+            MessageBox.Show(message);
+        }
         public static string WalletStatsApiUrl()
         {
             return "https://liberty-pool.com/api/miner/" + Settings.Default.Wallet + "/stats";
@@ -281,6 +444,7 @@ namespace LibertyMinerGUI
             return result;
         }
         #endregion
+        #region Maths
         static public string ConvertRawGigaHashes(string Hashes)
         {
             Hashes = Hashes.Split('.')[0];
@@ -338,13 +502,24 @@ namespace LibertyMinerGUI
             return MinerHashrate;
         }
         #endregion
+        #endregion
         #region PC Functionality
-
+        public static void Print(RichTextBox box, string message)
+        {
+            if (box.Text == "")
+            {
+                box.Text += message;
+            }
+            else
+            {
+                box.Text += Environment.NewLine + message;
+            }
+        }
         public static void RunMiner()
         {
             // Check if miner/config exists
             ApplyConfig();
-            if (!MinerExists()) 
+            if (!MinerExists())
             {
                 Form1 form1 = new Form1();
                 form1.Show();
@@ -376,18 +551,6 @@ namespace LibertyMinerGUI
                 process.Dispose();
             }
         }
-        public static bool isProcess(string name)
-        {
-            Process[] pname = Process.GetProcessesByName(name);
-            if (pname.Length > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
         static public void KillMiner()
         {
             if (LP.running)
@@ -410,49 +573,6 @@ namespace LibertyMinerGUI
             LP.running = false;
             LP.xmrigOutput = "XMRIG has exited...";
         }
-        static public bool MinerExists()
-        {
-            string miner = LP_Functionality.xmrigPath;
-            string winsys = Path.Combine(Application.StartupPath, "WinRing0x64.sys");
-            if (File.Exists(miner) && File.Exists(winsys))
-            {
-                return true;
-            }
-            else 
-            {
-                return false; 
-            }
-        }
-        static public bool isMinerOpen()
-        {
-            if (LP.running)
-            {
-                if (LP.xmrig != null)
-                {
-                    if (!LP.xmrig.HasExited)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else if (isProcess("xmrig"))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
         private static int lineCount = 0;
         private static StringBuilder output = new StringBuilder();
         private static void XMRigOutput_Event(object sender, DataReceivedEventArgs e)
@@ -465,24 +585,45 @@ namespace LibertyMinerGUI
             LP.xmrigOutput = output.ToString();
             Console.WriteLine(output.ToString());
         }
+        #region Config Settings
         static public void ApplyConfig()
         {
-            string config = Resources.config1;
-            StringBuilder stringBuilder = new StringBuilder(config);
             Settings s = Settings.Default;
-            stringBuilder.Replace("poolminingport", cpuPorts[s.Cpu]);
-            stringBuilder.Replace("YOUR_WALLET_ADDRESS", s.Wallet);
-            stringBuilder.Replace("WORKER_NAME_HERE", s.Worker + coins[s.Coin]);
-            if (s.Coin == 3)
+            if (File.Exists(configPath))
             {
-                stringBuilder.Replace("tlsconfiguration", "true");
+                string config = File.ReadAllText(configPath);
+                dynamic Result = JsonConvert.DeserializeObject(config);
+                ChangeConfig("pools", "pass", s.Worker + coins[s.Coin], config);
+                ChangeConfig("pools", "url", cpuPorts[s.Cpu], config);
+                ChangeConfig("pools", "user", s.Wallet, config);
+                //
+                if (s.Coin == 3)
+                {
+                    ChangeConfig("pools", "tls", "true", config);
+                }
+                else
+                {
+                    ChangeConfig("pools", "tls", "false", config);
+                }
             }
             else
             {
-                stringBuilder.Replace("tlsconfiguration", "false");
+                //
+                string config = Resources.config1;
+                StringBuilder stringBuilder = new StringBuilder(config);
+                stringBuilder.Replace("poolminingport", cpuPorts[s.Cpu]);
+                stringBuilder.Replace("YOUR_WALLET_ADDRESS", s.Wallet);
+                stringBuilder.Replace("WORKER_NAME_HERE", s.Worker + coins[s.Coin]);
+                if (s.Coin == 3)
+                {
+                    stringBuilder.Replace("tlsconfiguration", "true");
+                }
+                else
+                {
+                    stringBuilder.Replace("tlsconfiguration", "false");
+                }
+                File.WriteAllText(configPath, stringBuilder.ToString());
             }
-            File.WriteAllText(configPath, stringBuilder.ToString());
-            //
             if (s.RunOnStartup == true)
             {
                 Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
@@ -493,6 +634,13 @@ namespace LibertyMinerGUI
                 Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
                 key.DeleteValue("LP Miner GUI", false);
             }
+        }
+        static void ChangeConfig(string header, string subheader, string value, string config)
+        {
+            dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(config);
+            jsonObj[header][0][subheader] = value;
+            string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(configPath, output);
         }
         static public void SaveConfigData(ConfigData config)
         {
@@ -507,45 +655,7 @@ namespace LibertyMinerGUI
             //
             ApplyConfig();
         }
-        static public bool IsWalletValid(string address)
-        {
-            if (address.Length == 95)
-            {
-                if (address[0] == '4' || address[0] == '8'
-                || Enumerable.Range(0, 9).Contains(address[1])
-                || address[1] == 'A' || address[1] == 'B'
-                )
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-            }
-            else
-            {
-                return false;
-            }
-        }
-        static public string GetCPUtemp()
-        {
-            Double temperature = 0;
-            String instanceName = "";
-            // Query the MSAcpi_ThermalZoneTemperature API
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher(@"root\WMI", "SELECT * FROM MSAcpi_ThermalZoneTemperature");
-
-            foreach (ManagementObject obj in searcher.Get())
-            {
-                temperature = Convert.ToDouble(obj["CurrentTemperature"].ToString());
-                // Convert the value to celsius degrees
-                temperature = (temperature - 2732) / 10.0;
-                instanceName = obj["InstanceName"].ToString();
-            }
-            Console.WriteLine(temperature);
-            return temperature.ToString() + " º";
-        }
+        #endregion
         #endregion
     }
 

@@ -32,7 +32,7 @@
             this.xmrPriceLbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.totalHashesLbl = new System.Windows.Forms.Label();
+            this.nextPaymentDateLbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BlocksFLbl = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@
             this.xmrPricePanel.Controls.Add(this.xmrPriceLbl);
             this.xmrPricePanel.Controls.Add(this.label8);
             this.xmrPricePanel.Location = new System.Drawing.Point(26, 457);
-            this.xmrPricePanel.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.xmrPricePanel.Margin = new System.Windows.Forms.Padding(8);
             this.xmrPricePanel.Name = "xmrPricePanel";
             this.xmrPricePanel.Size = new System.Drawing.Size(920, 170);
             this.xmrPricePanel.TabIndex = 38;
@@ -93,26 +93,26 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel5.Controls.Add(this.totalHashesLbl);
+            this.panel5.Controls.Add(this.nextPaymentDateLbl);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Location = new System.Drawing.Point(1008, 953);
-            this.panel5.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel5.Margin = new System.Windows.Forms.Padding(8);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(920, 170);
             this.panel5.TabIndex = 37;
             // 
-            // totalHashesLbl
+            // nextPaymentDateLbl
             // 
-            this.totalHashesLbl.AutoSize = true;
-            this.totalHashesLbl.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalHashesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.totalHashesLbl.Location = new System.Drawing.Point(38, 95);
-            this.totalHashesLbl.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.totalHashesLbl.Name = "totalHashesLbl";
-            this.totalHashesLbl.Size = new System.Drawing.Size(158, 45);
-            this.totalHashesLbl.TabIndex = 0;
-            this.totalHashesLbl.Text = "Loading...";
-            this.totalHashesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nextPaymentDateLbl.AutoSize = true;
+            this.nextPaymentDateLbl.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nextPaymentDateLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+            this.nextPaymentDateLbl.Location = new System.Drawing.Point(38, 95);
+            this.nextPaymentDateLbl.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.nextPaymentDateLbl.Name = "nextPaymentDateLbl";
+            this.nextPaymentDateLbl.Size = new System.Drawing.Size(158, 45);
+            this.nextPaymentDateLbl.TabIndex = 0;
+            this.nextPaymentDateLbl.Text = "Loading...";
+            this.nextPaymentDateLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label10
             // 
@@ -122,9 +122,9 @@
             this.label10.Location = new System.Drawing.Point(34, 27);
             this.label10.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(407, 65);
+            this.label10.Size = new System.Drawing.Size(351, 65);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Total Pool Hashes:";
+            this.label10.Text = "Next Payments:";
             // 
             // panel2
             // 
@@ -132,7 +132,7 @@
             this.panel2.Controls.Add(this.BlocksFLbl);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(26, 953);
-            this.panel2.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel2.Margin = new System.Windows.Forms.Padding(8);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(920, 170);
             this.panel2.TabIndex = 36;
@@ -168,7 +168,7 @@
             this.panel3.Controls.Add(this.TotalPaymentsLbl);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(1008, 457);
-            this.panel3.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel3.Margin = new System.Windows.Forms.Padding(8);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(920, 170);
             this.panel3.TabIndex = 35;
@@ -204,7 +204,7 @@
             this.panel1.Controls.Add(this.WorldHashrateLbl);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(1008, 25);
-            this.panel1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel1.Margin = new System.Windows.Forms.Padding(8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(920, 170);
             this.panel1.TabIndex = 34;
@@ -240,7 +240,7 @@
             this.panel9.Controls.Add(this.PoolHashLbl);
             this.panel9.Controls.Add(this.PoolHashTitle);
             this.panel9.Location = new System.Drawing.Point(26, 25);
-            this.panel9.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel9.Margin = new System.Windows.Forms.Padding(8);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(920, 170);
             this.panel9.TabIndex = 33;
@@ -284,7 +284,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel9);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Margin = new System.Windows.Forms.Padding(8);
             this.Name = "frmPool";
             this.Text = "frmPool";
             this.xmrPricePanel.ResumeLayout(false);
@@ -309,7 +309,7 @@
         private System.Windows.Forms.Label xmrPriceLbl;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label totalHashesLbl;
+        private System.Windows.Forms.Label nextPaymentDateLbl;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label BlocksFLbl;

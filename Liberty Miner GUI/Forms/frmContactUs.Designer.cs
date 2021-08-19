@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.Contact_Us_Panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.OpenDiscordButton = new System.Windows.Forms.Button();
             this.emailLink = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             // 
             // Contact_Us_Panel
             // 
+            this.Contact_Us_Panel.Controls.Add(this.label1);
             this.Contact_Us_Panel.Controls.Add(this.OpenDiscordButton);
             this.Contact_Us_Panel.Controls.Add(this.emailLink);
             this.Contact_Us_Panel.Controls.Add(this.label3);
@@ -45,6 +47,17 @@
             this.Contact_Us_Panel.Name = "Contact_Us_Panel";
             this.Contact_Us_Panel.Size = new System.Drawing.Size(1954, 1149);
             this.Contact_Us_Panel.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 1108);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 32);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "v1.2";
             // 
             // OpenDiscordButton
             // 
@@ -112,5 +125,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel emailLink;
         private System.Windows.Forms.Button OpenDiscordButton;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,44 +22,96 @@ namespace LibertyMinerGUI
         {
             InitializeComponent();
         }
-        #region Bools
+        #region Checking Bools
         // Update bools:
         // This is here to check whether the updates have finished or not:
-        bool xmrig_Updated = false;
-        bool xmrigUpdated()
+        bool DownloadFinished()
         {
-            return xmrig_Updated;
+            return provisionalTargetPath == "";
         }
-        bool LP_Updated = false;
-        bool LPUpdated()
+        int Decision = 0; // 0 is no, 1 is yes, 2 means nothing (retry)
+        bool InterrogationFinished()
         {
-            return LP_Updated;
+            return !YesBtn.Visible;
         }
         #endregion
-        #region Check
-        // Here we check whether we should update any component:
+        #region Check 
+        // Here we check whether if we should update any component:
         private void Updater_Load(object sender, EventArgs e)
         {
             Check();
+        }
+        CheckResult LP_CheckResult()
+        {
+            CheckResult result = new CheckResult();
+            if (settings.LP_Version != LP_Functionality.DownloadString(LP_Functionality.LP_VersionURL))
+            {
+                result.ShouldUpdate = true;
+                result.Message = "LP GUI v" + LP_Functionality.DownloadString(LP_Functionality.LP_VersionURL)
+                        + " is available. Do you want to update this app?";
+            }
+            else
+            {
+                result.ShouldUpdate = false;
+                result.Message = "Loading...";
+            }
+            return result;
+        }
+        CheckResult Xmrig_CheckResult()
+        {
+            CheckResult result = new CheckResult();
+            if (!LP_Functionality.MinerExists())
+            {
+                result.ShouldUpdate = true;
+                result.Message = "The XMRIG miner is missing and it's required to mine, do you want to download the latest version?";
+            }
+            else if (settings.XMRIG_Download_Link
+                != LP_Functionality.DownloadString(LP_Functionality.xmrigDownloadURL))
+            {
+                result.ShouldUpdate = true;
+                result.Message = "There is a new version of the XMRIG miner, do you want to download it?";
+            }
+            else
+            {
+                result.ShouldUpdate = false;
+                result.Message = "Loading...";
+            }
+            return result;
         }
         async void Check()
         {
             if (await LP_Functionality.InternetConnectionAvailableAsync())
             {
-                if (!LP_Functionality.MinerExists() || settings.XMRIG_Download_Link != LP_Functionality.DownloadString(LP_Functionality.xmrigDownloadURL))
+                CheckResult checkxmrig = Xmrig_CheckResult();
+                CheckResult checkLP = LP_CheckResult();
+                // Checks for the xmrig and if the version is older, or it's not present, it downloads it
+                if (checkxmrig.ShouldUpdate)
                 {
-                    StatusTxt.Text = "Installing spooky things in your system...";
-                    DownloadXmrig();
-                    await TaskEx.WaitUntil(xmrigUpdated);
+                    StatusTxt.Text = checkxmrig.Message;
+                    ShowYesNoButtons();
+                    await TaskEx.WaitUntil(InterrogationFinished);
+                    if (Decision != 0)
+                    {
+                        DownloadXmrig();
+                        await TaskEx.WaitUntil(DownloadFinished);
+                    }
                 }
+                //Offline - Extracts the getscreenresolution
                 if (!File.Exists(resolutionExecpath))
                 {
                     ExtractResolutionExec();
                 }
-                if (settings.LP_Version != LP_Functionality.DownloadString(LP_Functionality.LP_VersionURL))
+                //Online - LP GUI
+                if (checkLP.ShouldUpdate)
                 {
-                    DownloadLP();
-                    await TaskEx.WaitUntil(LPUpdated);
+                    ShowYesNoButtons();
+                    StatusTxt.Text = checkLP.Message;
+                    await TaskEx.WaitUntil(InterrogationFinished);
+                    if (Decision == 1)
+                    {
+                        DownloadLP();
+                        await TaskEx.WaitUntil(DownloadFinished);
+                    }
                 }
                 // Spooky UI stuff
                 StatusTxt.Text = "Good, everything works...";
@@ -76,9 +123,21 @@ namespace LibertyMinerGUI
             else
             {
                 StatusTxt.Text = "No internet connection, do you want to proceed?";
-                YesBtn.Show();
-                NoBtn.Show();
-                RetryBtn.Show();
+                ShowAllButtons();
+                await TaskEx.WaitUntil(InterrogationFinished);
+                if (Decision == 0)
+                {
+                    Application.Exit();
+                }
+                else if (Decision == 1)
+                {
+                    Close();
+                }
+                else if (Decision == 2)
+                {
+                    StatusTxt.Text = "Retrying...";
+                    Check();
+                }
             }
         }
         void ExtractResolutionExec()
@@ -87,132 +146,81 @@ namespace LibertyMinerGUI
             File.WriteAllBytes(resolutionExecpath, Properties.Resources.GetScreenResolution);
         }
         #endregion
-        #region LP Download
-        private void DownloadLP()
+        #region Downloads
+        private async void DownloadLP()
         {
             StatusTxt.Text = "Updating LP GUI...";
-            Thread thread = new Thread(() =>
-            {
-                WebClient client = new WebClient();
-                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(LP_client_DownloadProgressChanged);
-                client.DownloadFileCompleted += new AsyncCompletedEventHandler(LP_client_DownloadFileCompleted);
-                client.DownloadFileAsync(new Uri(LP_Functionality.DownloadString(LP_Functionality.xmrigDownloadURL)), updateZIPpath);
-            });
-            thread.Start();
-        }
-        void LP_client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            this.BeginInvoke((MethodInvoker)delegate
-            {
-                double bytesIn = double.Parse(e.BytesReceived.ToString());
-                double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
-                double percentage = bytesIn / totalBytes * 100;
-                StatusTxt.Text = "Downloaded " + e.BytesReceived + " of " + e.TotalBytesToReceive;
-                progressBar1.Value = int.Parse(Math.Truncate(percentage).ToString());
-            });
-        }
-        void LP_client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            this.BeginInvoke((MethodInvoker)delegate
-            {
-                StatusTxt.Text = "Completed";
-            });
-            using (ZipArchive archive = ZipFile.OpenRead(updateZIPpath))
-            {
-                foreach (ZipArchiveEntry entry in archive.Entries)
-                {
-                    string path = Path.Combine(Application.StartupPath, entry.FullName);
-                    if (File.Exists(path)) File.Delete(path);
-                    entry.ExtractToFile(Path.Combine(Application.StartupPath, entry.FullName));
-                }
-            }
+            // Downloading LP GUI
+            Download(LP_Functionality.DownloadString(LP_Functionality.LP_DownloadURL), updateZIPpath);
+            await TaskEx.WaitUntil(DownloadFinished);
             // Save Update Settings
             settings.LP_Version = LP_Functionality.DownloadString(LP_Functionality.LP_VersionURL);
             settings.Save();
-            LP_Updated = true;
             // Execute LP GUI
             try
             {
                 Process.Start(Path.Combine(Application.StartupPath, "update.exe"));
+                Application.Exit();
             }
             catch (Exception ex)
             {
-                return;
+                StatusTxt.Text = "Couldn't update the app...";
             }
         }
-        #endregion
-        #region XMRIG Download
-        private void DownloadXmrig()
+        private async void DownloadXmrig()
         {
-            Thread thread = new Thread(() =>
-            {
-                WebClient client = new WebClient();
-                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(XMRIG_client_DownloadProgressChanged);
-                client.DownloadFileCompleted += new AsyncCompletedEventHandler(XMRIG_client_DownloadFileCompleted);
-                client.DownloadFileAsync(new Uri(LP_Functionality.DownloadString(LP_Functionality.xmrigDownloadURL)), xmrigZIPpath);
-            });
-            thread.Start();
-        }
-        void XMRIG_client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            this.BeginInvoke((MethodInvoker)delegate
-            {
-                double bytesIn = double.Parse(e.BytesReceived.ToString());
-                double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
-                double percentage = bytesIn / totalBytes * 100;
-                StatusTxt.Text = "Downloaded " + e.BytesReceived + " of " + e.TotalBytesToReceive;
-                progressBar1.Value = int.Parse(Math.Truncate(percentage).ToString());
-            });
-        }
-        void XMRIG_client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            this.BeginInvoke((MethodInvoker)delegate
-            {
-                StatusTxt.Text = "Completed";
-            });
-            using (ZipArchive archive = ZipFile.OpenRead(xmrigZIPpath))
-            {
-                foreach (ZipArchiveEntry entry in archive.Entries)
-                {
-                    string path = Path.Combine(Application.StartupPath, entry.FullName);
-                    if (File.Exists(path)) File.Delete(path);
-                    if (!entry.Name.Contains("config")) entry.ExtractToFile(Path.Combine(Application.StartupPath, entry.FullName));
-                }
-            }
-            File.Delete(xmrigZIPpath);
+            // UI
+            StatusTxt.Text = "Installing spooky things in your system...";
+            // Download func:
+            Download(LP_Functionality.DownloadString(LP_Functionality.xmrigDownloadURL), xmrigZIPpath);
+            await TaskEx.WaitUntil(LP_Functionality.MinerExists);
             // Save Update Settings
             settings.XMRIG_Download_Link = LP_Functionality.DownloadString(LP_Functionality.xmrigDownloadURL);
             settings.Save();
-            xmrig_Updated = true;
-            // Extract
-
         }
         #endregion
         #region Buttons
-        private async void YesBtn_Click(object sender, EventArgs e)
-        {
-            await Task.Delay(450);
-            HideAllButtons();
-            Close();
-        }
         void HideAllButtons()
         {
-            NoBtn.Hide();
+            NoBtn.Visible = false;
+            RetryBtn.Visible = false;
+            YesBtn.Visible = false;
+        }
+        void ShowAllButtons()
+        {
+            NoBtn.Show();
+            RetryBtn.Show();
+            YesBtn.Show();
+        }
+        void ShowYesNoButtons()
+        {
+            NoBtn.Show();
             RetryBtn.Hide();
-            YesBtn.Hide();
+            YesBtn.Show();
+        }
+        private async void YesBtn_Click(object sender, EventArgs e)
+        {
+            // Waits to display the beautiful MaterialDesign animation
+            await Task.Delay(450);
+            //Decision making
+            Decision = 1;
+            HideAllButtons();
         }
         private async void RetryBtn_Click(object sender, EventArgs e)
         {
+            // Waits to display the beautiful MaterialDesign animation
             await Task.Delay(450);
+            //Decision making
+            Decision = 2;
             HideAllButtons();
-            StatusTxt.Text = "Retrying...";
-            Check();
         }
         private async void NoBtn_Click(object sender, EventArgs e)
         {
+            // Waits to display the beautiful MaterialDesign animation
             await Task.Delay(450);
+            //Decision making
+            Decision = 0;
             HideAllButtons();
-            Application.Exit();
         }
         #endregion
         #region UI
@@ -221,5 +229,64 @@ namespace LibertyMinerGUI
             ActiveControl = progressBar1;
         }
         #endregion
+        #region Download Functionality
+        private void Download(string url, string targetPath)
+        {
+            //Setting the path for the unzip to extract
+            provisionalTargetPath = targetPath;
+            //Setting up the client to download said file
+            Thread thread = new Thread(() =>
+            {
+                WebClient client = new WebClient();
+                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(client_DownloadProgressChanged);
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
+                client.DownloadFileAsync(new Uri(url), targetPath);
+            });
+            //Starting the client
+            thread.Start();
+        }
+        string provisionalTargetPath;
+        void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                double bytesIn = double.Parse(e.BytesReceived.ToString());
+                double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
+                double percentage = bytesIn / totalBytes * 100;
+                StatusTxt.Text = "Downloaded " + e.BytesReceived + " of " + e.TotalBytesToReceive;
+                progressBar1.Value = int.Parse(Math.Truncate(percentage).ToString());
+            });
+        }
+        void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            //UI:
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                StatusTxt.Text = "Completed";
+            });
+            //Extraction:
+            using (ZipArchive archive = ZipFile.OpenRead(provisionalTargetPath))
+            {
+                foreach (ZipArchiveEntry entry in archive.Entries)
+                {
+                    if (entry.FullName != "config.json")
+                    {
+                        string path = Path.Combine(Application.StartupPath, entry.FullName);
+                        if (File.Exists(path)) File.Delete(path);
+                        entry.ExtractToFile(Path.Combine(Application.StartupPath, entry.FullName));
+                    }
+                }
+            }
+            // Deletes the zip file to save memory on the client's computer
+            File.Delete(provisionalTargetPath);
+            // Sets it to empty so that it can be used as a bool to know whether the download has been finished
+            provisionalTargetPath = "";
+        }
+        #endregion     
+    }
+    class CheckResult
+    {
+        public bool ShouldUpdate;
+        public string Message;
     }
 }
