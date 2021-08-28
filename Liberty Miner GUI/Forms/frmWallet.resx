@@ -1,0 +1,1356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CopyWalletButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="CopyWalletButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="CopyWalletButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 25</value>
+  </data>
+  <data name="CopyWalletButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="CopyWalletButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1918, 64</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CopyWalletButton.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="CopyWalletButton.Text" xml:space="preserve">
+    <value>Copy:86buK1FuQAWXKvALgU9xk6FcdRKgoAGtEj5fzzBgGJm98mAG1svZDEDEFbfbFqe9EfJeYijF765SgKDCQTny3TsLNG4K5zk</value>
+  </data>
+  <data name="CopyWalletButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;CopyWalletButton.Name" xml:space="preserve">
+    <value>CopyWalletButton</value>
+  </data>
+  <data name="&gt;&gt;CopyWalletButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CopyWalletButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CopyWalletButton.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;HashLbl.Name" xml:space="preserve">
+    <value>HashLbl</value>
+  </data>
+  <data name="&gt;&gt;HashLbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HashLbl.Parent" xml:space="preserve">
+    <value>HashPanel</value>
+  </data>
+  <data name="&gt;&gt;HashLbl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;hashTitle.Name" xml:space="preserve">
+    <value>hashTitle</value>
+  </data>
+  <data name="&gt;&gt;hashTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;hashTitle.Parent" xml:space="preserve">
+    <value>HashPanel</value>
+  </data>
+  <data name="&gt;&gt;hashTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="HashPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 39</value>
+  </data>
+  <data name="HashPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="HashPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>920, 170</value>
+  </data>
+  <data name="HashPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="&gt;&gt;HashPanel.Name" xml:space="preserve">
+    <value>HashPanel</value>
+  </data>
+  <data name="&gt;&gt;HashPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HashPanel.Parent" xml:space="preserve">
+    <value>Stats_Panel</value>
+  </data>
+  <data name="&gt;&gt;HashPanel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="HashLbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="HashLbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9.75pt</value>
+  </data>
+  <data name="HashLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 95</value>
+  </data>
+  <data name="HashLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="HashLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 45</value>
+  </data>
+  <data name="HashLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="HashLbl.Text" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="HashLbl.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;HashLbl.Name" xml:space="preserve">
+    <value>HashLbl</value>
+  </data>
+  <data name="&gt;&gt;HashLbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HashLbl.Parent" xml:space="preserve">
+    <value>HashPanel</value>
+  </data>
+  <data name="&gt;&gt;HashLbl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="hashTitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="hashTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 14.25pt</value>
+  </data>
+  <data name="hashTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 27</value>
+  </data>
+  <data name="hashTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="hashTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 65</value>
+  </data>
+  <data name="hashTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="hashTitle.Text" xml:space="preserve">
+    <value>Hashrate:</value>
+  </data>
+  <data name="&gt;&gt;hashTitle.Name" xml:space="preserve">
+    <value>hashTitle</value>
+  </data>
+  <data name="&gt;&gt;hashTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;hashTitle.Parent" xml:space="preserve">
+    <value>HashPanel</value>
+  </data>
+  <data name="&gt;&gt;hashTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;PaidLbl.Name" xml:space="preserve">
+    <value>PaidLbl</value>
+  </data>
+  <data name="&gt;&gt;PaidLbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PaidLbl.Parent" xml:space="preserve">
+    <value>PaidPanel</value>
+  </data>
+  <data name="&gt;&gt;PaidLbl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PaidTitle.Name" xml:space="preserve">
+    <value>PaidTitle</value>
+  </data>
+  <data name="&gt;&gt;PaidTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PaidTitle.Parent" xml:space="preserve">
+    <value>PaidPanel</value>
+  </data>
+  <data name="&gt;&gt;PaidTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PaidPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>982, 39</value>
+  </data>
+  <data name="PaidPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="PaidPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>920, 170</value>
+  </data>
+  <data name="PaidPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="&gt;&gt;PaidPanel.Name" xml:space="preserve">
+    <value>PaidPanel</value>
+  </data>
+  <data name="&gt;&gt;PaidPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PaidPanel.Parent" xml:space="preserve">
+    <value>Stats_Panel</value>
+  </data>
+  <data name="&gt;&gt;PaidPanel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="PaidLbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PaidLbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9.75pt</value>
+  </data>
+  <data name="PaidLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 95</value>
+  </data>
+  <data name="PaidLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="PaidLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 45</value>
+  </data>
+  <data name="PaidLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="PaidLbl.Text" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="PaidLbl.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;PaidLbl.Name" xml:space="preserve">
+    <value>PaidLbl</value>
+  </data>
+  <data name="&gt;&gt;PaidLbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PaidLbl.Parent" xml:space="preserve">
+    <value>PaidPanel</value>
+  </data>
+  <data name="&gt;&gt;PaidLbl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PaidTitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PaidTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 14.25pt</value>
+  </data>
+  <data name="PaidTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 27</value>
+  </data>
+  <data name="PaidTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="PaidTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 65</value>
+  </data>
+  <data name="PaidTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="PaidTitle.Text" xml:space="preserve">
+    <value>XMR Paid:</value>
+  </data>
+  <data name="&gt;&gt;PaidTitle.Name" xml:space="preserve">
+    <value>PaidTitle</value>
+  </data>
+  <data name="&gt;&gt;PaidTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PaidTitle.Parent" xml:space="preserve">
+    <value>PaidPanel</value>
+  </data>
+  <data name="&gt;&gt;PaidTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;PendingLbl.Name" xml:space="preserve">
+    <value>PendingLbl</value>
+  </data>
+  <data name="&gt;&gt;PendingLbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PendingLbl.Parent" xml:space="preserve">
+    <value>PendingPanel</value>
+  </data>
+  <data name="&gt;&gt;PendingLbl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PendingTitle.Name" xml:space="preserve">
+    <value>PendingTitle</value>
+  </data>
+  <data name="&gt;&gt;PendingTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PendingTitle.Parent" xml:space="preserve">
+    <value>PendingPanel</value>
+  </data>
+  <data name="&gt;&gt;PendingTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PendingPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 225</value>
+  </data>
+  <data name="PendingPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="PendingPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>920, 170</value>
+  </data>
+  <data name="PendingPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="&gt;&gt;PendingPanel.Name" xml:space="preserve">
+    <value>PendingPanel</value>
+  </data>
+  <data name="&gt;&gt;PendingPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PendingPanel.Parent" xml:space="preserve">
+    <value>Stats_Panel</value>
+  </data>
+  <data name="&gt;&gt;PendingPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="PendingLbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PendingLbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9.75pt</value>
+  </data>
+  <data name="PendingLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 95</value>
+  </data>
+  <data name="PendingLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="PendingLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 45</value>
+  </data>
+  <data name="PendingLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="PendingLbl.Text" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="PendingLbl.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;PendingLbl.Name" xml:space="preserve">
+    <value>PendingLbl</value>
+  </data>
+  <data name="&gt;&gt;PendingLbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PendingLbl.Parent" xml:space="preserve">
+    <value>PendingPanel</value>
+  </data>
+  <data name="&gt;&gt;PendingLbl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PendingTitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PendingTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 14.25pt</value>
+  </data>
+  <data name="PendingTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 27</value>
+  </data>
+  <data name="PendingTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="PendingTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>323, 65</value>
+  </data>
+  <data name="PendingTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="PendingTitle.Text" xml:space="preserve">
+    <value>XMR Pending:</value>
+  </data>
+  <data name="&gt;&gt;PendingTitle.Name" xml:space="preserve">
+    <value>PendingTitle</value>
+  </data>
+  <data name="&gt;&gt;PendingTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PendingTitle.Parent" xml:space="preserve">
+    <value>PendingPanel</value>
+  </data>
+  <data name="&gt;&gt;PendingTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;RAMlbl.Name" xml:space="preserve">
+    <value>RAMlbl</value>
+  </data>
+  <data name="&gt;&gt;RAMlbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RAMlbl.Parent" xml:space="preserve">
+    <value>RAMpanel</value>
+  </data>
+  <data name="&gt;&gt;RAMlbl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;RAMtitle.Name" xml:space="preserve">
+    <value>RAMtitle</value>
+  </data>
+  <data name="&gt;&gt;RAMtitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RAMtitle.Parent" xml:space="preserve">
+    <value>RAMpanel</value>
+  </data>
+  <data name="&gt;&gt;RAMtitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="RAMpanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>982, 225</value>
+  </data>
+  <data name="RAMpanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="RAMpanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>920, 170</value>
+  </data>
+  <data name="RAMpanel.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="&gt;&gt;RAMpanel.Name" xml:space="preserve">
+    <value>RAMpanel</value>
+  </data>
+  <data name="&gt;&gt;RAMpanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RAMpanel.Parent" xml:space="preserve">
+    <value>Stats_Panel</value>
+  </data>
+  <data name="&gt;&gt;RAMpanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="RAMlbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RAMlbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9.75pt</value>
+  </data>
+  <data name="RAMlbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 95</value>
+  </data>
+  <data name="RAMlbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="RAMlbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 45</value>
+  </data>
+  <data name="RAMlbl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="RAMlbl.Text" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="RAMlbl.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;RAMlbl.Name" xml:space="preserve">
+    <value>RAMlbl</value>
+  </data>
+  <data name="&gt;&gt;RAMlbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RAMlbl.Parent" xml:space="preserve">
+    <value>RAMpanel</value>
+  </data>
+  <data name="&gt;&gt;RAMlbl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RAMtitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RAMtitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 14.25pt</value>
+  </data>
+  <data name="RAMtitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 27</value>
+  </data>
+  <data name="RAMtitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="RAMtitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>284, 65</value>
+  </data>
+  <data name="RAMtitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="RAMtitle.Text" xml:space="preserve">
+    <value>RAM Usage:</value>
+  </data>
+  <data name="&gt;&gt;RAMtitle.Name" xml:space="preserve">
+    <value>RAMtitle</value>
+  </data>
+  <data name="&gt;&gt;RAMtitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RAMtitle.Parent" xml:space="preserve">
+    <value>RAMpanel</value>
+  </data>
+  <data name="&gt;&gt;RAMtitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Lbl.Name" xml:space="preserve">
+    <value>XMRIG_Duration_Lbl</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Lbl.Parent" xml:space="preserve">
+    <value>XMRIG_Duration_Panel</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Lbl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Title.Name" xml:space="preserve">
+    <value>XMRIG_Duration_Title</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Title.Parent" xml:space="preserve">
+    <value>XMRIG_Duration_Panel</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Title.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="XMRIG_Duration_Panel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 411</value>
+  </data>
+  <data name="XMRIG_Duration_Panel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="XMRIG_Duration_Panel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>920, 170</value>
+  </data>
+  <data name="XMRIG_Duration_Panel.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Panel.Name" xml:space="preserve">
+    <value>XMRIG_Duration_Panel</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Panel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Panel.Parent" xml:space="preserve">
+    <value>Stats_Panel</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Panel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="XMRIG_Duration_Lbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="XMRIG_Duration_Lbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9.75pt</value>
+  </data>
+  <data name="XMRIG_Duration_Lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 95</value>
+  </data>
+  <data name="XMRIG_Duration_Lbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="XMRIG_Duration_Lbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>296, 45</value>
+  </data>
+  <data name="XMRIG_Duration_Lbl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="XMRIG_Duration_Lbl.Text" xml:space="preserve">
+    <value>Not initialized yet...</value>
+  </data>
+  <data name="XMRIG_Duration_Lbl.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Lbl.Name" xml:space="preserve">
+    <value>XMRIG_Duration_Lbl</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Lbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Lbl.Parent" xml:space="preserve">
+    <value>XMRIG_Duration_Panel</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Lbl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="XMRIG_Duration_Title.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="XMRIG_Duration_Title.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 14.25pt</value>
+  </data>
+  <data name="XMRIG_Duration_Title.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 27</value>
+  </data>
+  <data name="XMRIG_Duration_Title.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="XMRIG_Duration_Title.Size" type="System.Drawing.Size, System.Drawing">
+    <value>382, 65</value>
+  </data>
+  <data name="XMRIG_Duration_Title.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="XMRIG_Duration_Title.Text" xml:space="preserve">
+    <value>XMRIG Duration:</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Title.Name" xml:space="preserve">
+    <value>XMRIG_Duration_Title</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Title.Parent" xml:space="preserve">
+    <value>XMRIG_Duration_Panel</value>
+  </data>
+  <data name="&gt;&gt;XMRIG_Duration_Title.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;CPULbl.Name" xml:space="preserve">
+    <value>CPULbl</value>
+  </data>
+  <data name="&gt;&gt;CPULbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CPULbl.Parent" xml:space="preserve">
+    <value>CPUpanel</value>
+  </data>
+  <data name="&gt;&gt;CPULbl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;CPUtitle.Name" xml:space="preserve">
+    <value>CPUtitle</value>
+  </data>
+  <data name="&gt;&gt;CPUtitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CPUtitle.Parent" xml:space="preserve">
+    <value>CPUpanel</value>
+  </data>
+  <data name="&gt;&gt;CPUtitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="CPUpanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>982, 411</value>
+  </data>
+  <data name="CPUpanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="CPUpanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>920, 170</value>
+  </data>
+  <data name="CPUpanel.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="&gt;&gt;CPUpanel.Name" xml:space="preserve">
+    <value>CPUpanel</value>
+  </data>
+  <data name="&gt;&gt;CPUpanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CPUpanel.Parent" xml:space="preserve">
+    <value>Stats_Panel</value>
+  </data>
+  <data name="&gt;&gt;CPUpanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CPULbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CPULbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9.75pt</value>
+  </data>
+  <data name="CPULbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 95</value>
+  </data>
+  <data name="CPULbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="CPULbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 45</value>
+  </data>
+  <data name="CPULbl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="CPULbl.Text" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="CPULbl.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;CPULbl.Name" xml:space="preserve">
+    <value>CPULbl</value>
+  </data>
+  <data name="&gt;&gt;CPULbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CPULbl.Parent" xml:space="preserve">
+    <value>CPUpanel</value>
+  </data>
+  <data name="&gt;&gt;CPULbl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CPUtitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CPUtitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 14.25pt</value>
+  </data>
+  <data name="CPUtitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 27</value>
+  </data>
+  <data name="CPUtitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="CPUtitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 65</value>
+  </data>
+  <data name="CPUtitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="CPUtitle.Text" xml:space="preserve">
+    <value>CPU Temp:</value>
+  </data>
+  <data name="&gt;&gt;CPUtitle.Name" xml:space="preserve">
+    <value>CPUtitle</value>
+  </data>
+  <data name="&gt;&gt;CPUtitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CPUtitle.Parent" xml:space="preserve">
+    <value>CPUpanel</value>
+  </data>
+  <data name="&gt;&gt;CPUtitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Stats_Panel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 492</value>
+  </data>
+  <data name="Stats_Panel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="Stats_Panel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1902, 620</value>
+  </data>
+  <data name="Stats_Panel.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="&gt;&gt;Stats_Panel.Name" xml:space="preserve">
+    <value>Stats_Panel</value>
+  </data>
+  <data name="&gt;&gt;Stats_Panel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Stats_Panel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Stats_Panel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ConsoleButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ConsoleButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="ConsoleButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1054, 185</value>
+  </data>
+  <data name="ConsoleButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="ConsoleButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>332, 291</value>
+  </data>
+  <data name="ConsoleButton.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="ConsoleButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;ConsoleButton.Name" xml:space="preserve">
+    <value>ConsoleButton</value>
+  </data>
+  <data name="&gt;&gt;ConsoleButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ConsoleButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ConsoleButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="StatsButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="StatsButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="StatsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>556, 185</value>
+  </data>
+  <data name="StatsButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="StatsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>332, 291</value>
+  </data>
+  <data name="StatsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="StatsButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;StatsButton.Name" xml:space="preserve">
+    <value>StatsButton</value>
+  </data>
+  <data name="&gt;&gt;StatsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StatsButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;StatsButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="RunCloseButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="RunCloseButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RunCloseButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 185</value>
+  </data>
+  <data name="RunCloseButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="RunCloseButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>332, 291</value>
+  </data>
+  <data name="RunCloseButton.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="RunCloseButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;RunCloseButton.Name" xml:space="preserve">
+    <value>RunCloseButton</value>
+  </data>
+  <data name="&gt;&gt;RunCloseButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RunCloseButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;RunCloseButton.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;consoleControl1.Name" xml:space="preserve">
+    <value>consoleControl1</value>
+  </data>
+  <data name="&gt;&gt;consoleControl1.Type" xml:space="preserve">
+    <value>ConsoleControl.ConsoleControl, ConsoleControl, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7edd23586f5e297f</value>
+  </data>
+  <data name="&gt;&gt;consoleControl1.Parent" xml:space="preserve">
+    <value>ConsolePanel</value>
+  </data>
+  <data name="&gt;&gt;consoleControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ConsoleTitle.Name" xml:space="preserve">
+    <value>ConsoleTitle</value>
+  </data>
+  <data name="&gt;&gt;ConsoleTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ConsoleTitle.Parent" xml:space="preserve">
+    <value>ConsolePanel</value>
+  </data>
+  <data name="&gt;&gt;ConsoleTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ConsolePanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 492</value>
+  </data>
+  <data name="ConsolePanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="ConsolePanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1902, 620</value>
+  </data>
+  <data name="ConsolePanel.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="&gt;&gt;ConsolePanel.Name" xml:space="preserve">
+    <value>ConsolePanel</value>
+  </data>
+  <data name="&gt;&gt;ConsolePanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ConsolePanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ConsolePanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="consoleControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 111</value>
+  </data>
+  <data name="consoleControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
+  </data>
+  <data name="consoleControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1857, 493</value>
+  </data>
+  <data name="consoleControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;consoleControl1.Name" xml:space="preserve">
+    <value>consoleControl1</value>
+  </data>
+  <data name="&gt;&gt;consoleControl1.Type" xml:space="preserve">
+    <value>ConsoleControl.ConsoleControl, ConsoleControl, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7edd23586f5e297f</value>
+  </data>
+  <data name="&gt;&gt;consoleControl1.Parent" xml:space="preserve">
+    <value>ConsolePanel</value>
+  </data>
+  <data name="&gt;&gt;consoleControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ConsoleTitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ConsoleTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 14.25pt</value>
+  </data>
+  <data name="ConsoleTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 25</value>
+  </data>
+  <data name="ConsoleTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="ConsoleTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 65</value>
+  </data>
+  <data name="ConsoleTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ConsoleTitle.Text" xml:space="preserve">
+    <value>Console:</value>
+  </data>
+  <data name="&gt;&gt;ConsoleTitle.Name" xml:space="preserve">
+    <value>ConsoleTitle</value>
+  </data>
+  <data name="&gt;&gt;ConsoleTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ConsoleTitle.Parent" xml:space="preserve">
+    <value>ConsolePanel</value>
+  </data>
+  <data name="&gt;&gt;ConsoleTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 14.25pt</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 25</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 65</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Payments:</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>PaymentsPanel</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;payments_refresh_btn.Name" xml:space="preserve">
+    <value>payments_refresh_btn</value>
+  </data>
+  <data name="&gt;&gt;payments_refresh_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;payments_refresh_btn.Parent" xml:space="preserve">
+    <value>PaymentsPanel</value>
+  </data>
+  <data name="&gt;&gt;payments_refresh_btn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;payments_displayconsole.Name" xml:space="preserve">
+    <value>payments_displayconsole</value>
+  </data>
+  <data name="&gt;&gt;payments_displayconsole.Type" xml:space="preserve">
+    <value>ConsoleControl.ConsoleControl, ConsoleControl, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7edd23586f5e297f</value>
+  </data>
+  <data name="&gt;&gt;payments_displayconsole.Parent" xml:space="preserve">
+    <value>PaymentsPanel</value>
+  </data>
+  <data name="&gt;&gt;payments_displayconsole.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PaymentsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 492</value>
+  </data>
+  <data name="PaymentsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="PaymentsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1902, 620</value>
+  </data>
+  <data name="PaymentsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="&gt;&gt;PaymentsPanel.Name" xml:space="preserve">
+    <value>PaymentsPanel</value>
+  </data>
+  <data name="&gt;&gt;PaymentsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PaymentsPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PaymentsPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="payments_refresh_btn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="payments_refresh_btn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="payments_refresh_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="payments_refresh_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1799, 21</value>
+  </data>
+  <data name="payments_refresh_btn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="payments_refresh_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 75</value>
+  </data>
+  <data name="payments_refresh_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>47</value>
+  </data>
+  <data name="payments_refresh_btn.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;payments_refresh_btn.Name" xml:space="preserve">
+    <value>payments_refresh_btn</value>
+  </data>
+  <data name="&gt;&gt;payments_refresh_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;payments_refresh_btn.Parent" xml:space="preserve">
+    <value>PaymentsPanel</value>
+  </data>
+  <data name="&gt;&gt;payments_refresh_btn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="payments_displayconsole.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 111</value>
+  </data>
+  <data name="payments_displayconsole.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 7, 8, 7</value>
+  </data>
+  <data name="payments_displayconsole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1857, 493</value>
+  </data>
+  <data name="payments_displayconsole.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;payments_displayconsole.Name" xml:space="preserve">
+    <value>payments_displayconsole</value>
+  </data>
+  <data name="&gt;&gt;payments_displayconsole.Type" xml:space="preserve">
+    <value>ConsoleControl.ConsoleControl, ConsoleControl, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7edd23586f5e297f</value>
+  </data>
+  <data name="&gt;&gt;payments_displayconsole.Parent" xml:space="preserve">
+    <value>PaymentsPanel</value>
+  </data>
+  <data name="&gt;&gt;payments_displayconsole.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>GraphPanel</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="GraphPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 492</value>
+  </data>
+  <data name="GraphPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="GraphPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1902, 620</value>
+  </data>
+  <data name="GraphPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="&gt;&gt;GraphPanel.Name" xml:space="preserve">
+    <value>GraphPanel</value>
+  </data>
+  <data name="&gt;&gt;GraphPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GraphPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GraphPanel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 14.25pt</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 25</value>
+  </data>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 65</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Graph:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>GraphPanel</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PaymentButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="PaymentButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="PaymentButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PaymentButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1596, 185</value>
+  </data>
+  <data name="PaymentButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="PaymentButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>332, 291</value>
+  </data>
+  <data name="PaymentButton.TabIndex" type="System.Int32, mscorlib">
+    <value>47</value>
+  </data>
+  <data name="PaymentButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;PaymentButton.Name" xml:space="preserve">
+    <value>PaymentButton</value>
+  </data>
+  <data name="&gt;&gt;PaymentButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PaymentButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PaymentButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>16, 31</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1954, 1137</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>frmWallet</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmWallet</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
