@@ -36,7 +36,7 @@ namespace LibertyMinerGUI
         public static LP_Functionality LP = new LP_Functionality();
         public static string PoolApiURL = "https://liberty-pool.com/api/pool/stats";
         public static string PoolApiPaymentsURL = "https://liberty-pool.com/api/pool/payments?page=";
-        public static string AnnouncementsApiURL = "https://raw.githubusercontent.com/Liberty-Pool/etc/master/Liberty%20Miner%20GUI/ancn.txt";
+        public static string AnnouncementsApiURL = "https://pastebin.com/raw/bRj2zfxf";
         public static string XMRpriceApiURL = "https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=BTC,USD,EUR";
         public static string XMRhashrateApiURL = "https://localmonero.co/blocks/api/get_stats";
         public static string xmrigPath = Path.Combine(Application.StartupPath, "xmrig.exe");
