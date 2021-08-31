@@ -156,7 +156,7 @@ namespace LibertyMinerGUI
         #region Payment
         async void UpdatePaymentThreshold()
         {
-            if (await  LP_Functionality.InternetConnectionAvailableAsync())
+            if (await LP_Functionality.InternetConnectionAvailableAsync())
             {
                 string url = "https://liberty-pool.com/api/user/updateThreshold";
                 var wb = new WebClient();

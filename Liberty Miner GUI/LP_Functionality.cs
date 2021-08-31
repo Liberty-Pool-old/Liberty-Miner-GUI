@@ -27,7 +27,7 @@ namespace LibertyMinerGUI
     {
         #region Variables
         // Default settings:
-        public const string LP_VERSION = "1.2";
+        public const string LP_VERSION = "1.3";
         //
         public static string xmrigDownloadURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/xmrig-download";
         public static string LP_DownloadURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/lp-dwnld-link";
