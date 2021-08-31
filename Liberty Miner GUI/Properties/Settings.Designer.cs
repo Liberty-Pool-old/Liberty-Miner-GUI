@@ -110,7 +110,7 @@ namespace LibertyMinerGUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.3")]
         public string LP_Version {
             get {
                 return ((string)(this["LP_Version"]));
