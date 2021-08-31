@@ -29,7 +29,7 @@ namespace LibertyMinerGUI
         // Default settings:
         public const string LP_VERSION = "1.3";
         //
-        public static string xmrigDownloadURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/xmrig-download";
+        public static string xmrigDownloadURL = "https://pastebin.com/raw/qj1A6wx7";
         public static string LP_DownloadURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/lp-dwnld-link";
         public static string LP_VersionURL = "https://pastebin.com/raw/1kupkxN3";
         // APIs &
