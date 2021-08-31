@@ -964,7 +964,7 @@
     <value>NoControl</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>386, 0</value>
+    <value>305, 0</value>
   </data>
   <data name="button2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>8, 8, 8, 8</value>
@@ -985,7 +985,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;button2.Parent" xml:space="preserve">
-    <value>panel1</value>
+    <value>updateThPanel</value>
   </data>
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1006,7 +1006,7 @@
     <value>8, 8, 8, 8</value>
   </data>
   <data name="batteryBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>453, 66</value>
+    <value>372, 66</value>
   </data>
   <data name="batteryBtn.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
@@ -1027,66 +1027,66 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;batteryBtn.Parent" xml:space="preserve">
-    <value>panel1</value>
+    <value>updateThPanel</value>
   </data>
   <data name="&gt;&gt;batteryBtn.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1203, 30</value>
+  <data name="updateThPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1071, 26</value>
   </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>453, 66</value>
+  <data name="updateThPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>372, 66</value>
   </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+  <data name="updateThPanel.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
   </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;updateThPanel.Name" xml:space="preserve">
+    <value>updateThPanel</value>
   </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+  <data name="&gt;&gt;updateThPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;updateThPanel.Parent" xml:space="preserve">
     <value>PaymentsPanel</value>
   </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;updateThPanel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="workerTxt.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="thresholdAmountTxt.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 11pt</value>
   </data>
-  <data name="workerTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>615, 30</value>
+  <data name="thresholdAmountTxt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>641, 37</value>
   </data>
-  <data name="workerTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="thresholdAmountTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>8, 8, 8, 8</value>
   </data>
-  <data name="workerTxt.Multiline" type="System.Boolean, mscorlib">
+  <data name="thresholdAmountTxt.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="workerTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>577, 61</value>
+  <data name="thresholdAmountTxt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 49</value>
   </data>
-  <data name="workerTxt.TabIndex" type="System.Int32, mscorlib">
+  <data name="thresholdAmountTxt.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
   </data>
-  <data name="workerTxt.Text" xml:space="preserve">
+  <data name="thresholdAmountTxt.Text" xml:space="preserve">
     <value>XMR payment amount</value>
   </data>
-  <data name="workerTxt.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+  <data name="thresholdAmountTxt.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
   </data>
-  <data name="&gt;&gt;workerTxt.Name" xml:space="preserve">
-    <value>workerTxt</value>
+  <data name="&gt;&gt;thresholdAmountTxt.Name" xml:space="preserve">
+    <value>thresholdAmountTxt</value>
   </data>
-  <data name="&gt;&gt;workerTxt.Type" xml:space="preserve">
+  <data name="&gt;&gt;thresholdAmountTxt.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;workerTxt.Parent" xml:space="preserve">
+  <data name="&gt;&gt;thresholdAmountTxt.Parent" xml:space="preserve">
     <value>PaymentsPanel</value>
   </data>
-  <data name="&gt;&gt;workerTxt.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;thresholdAmountTxt.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="payments_refresh_btn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">

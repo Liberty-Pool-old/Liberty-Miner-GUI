@@ -5,7 +5,8 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
+using System.Collections.Specialized;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -53,7 +54,7 @@ namespace LibertyMinerGUI
             RichTextBox box = payments_displayconsole.InternalRichTextBox;
             box.Text = "Loading...";
             List<WalletPayment> payments = LP_Functionality.GetWalletPayments();
-            if (payments[0].Amount == "Nein") 
+            if (payments[0].Amount == "Nein")
             {
                 box.Clear();
                 LP_Functionality.Print(box, "No payments yet 😭 ");
@@ -152,6 +153,20 @@ namespace LibertyMinerGUI
             LoadData();
         }
         #endregion
+        #region Payment
+        async void UpdatePaymentThreshold()
+        {
+            if (await LP_Functionality.InternetConnectionAvailableAsync())
+            {
+                string url = "https://liberty-pool.com/api/user/updateThreshold";
+                var wb = new WebClient();
+                var data = new NameValueCollection();
+                data["username"] = WalletAddress;
+                data["threshold"] = thresholdAmountTxt.Text;
+                var response = wb.UploadValues(url, "POST", data);
+            }
+        }
+        #endregion
         #region Buttons
         private void CopyWalletButton_Click(object sender, EventArgs e)
         {
@@ -194,7 +209,16 @@ namespace LibertyMinerGUI
         {
             OpenPanel(PaymentsPanel);
         }
+        private void batteryBtn_Click(object sender, EventArgs e)
+        {
+            UpdatePaymentThreshold();
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UpdatePaymentThreshold();
+        }
         #endregion
+
 
     }
 }

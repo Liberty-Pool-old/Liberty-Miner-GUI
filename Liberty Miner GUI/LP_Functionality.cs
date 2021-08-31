@@ -31,7 +31,7 @@ namespace LibertyMinerGUI
         //
         public static string xmrigDownloadURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/xmrig-download";
         public static string LP_DownloadURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/lp-dwnld-link";
-        public static string LP_VersionURL = "https://raw.githubusercontent.com/Liberty-Pool/Liberty-Miner-GUI/master/lp-version-link";
+        public static string LP_VersionURL = "https://pastebin.com/raw/1kupkxN3";
         // APIs &
         public static LP_Functionality LP = new LP_Functionality();
         public static string PoolApiURL = "https://liberty-pool.com/api/pool/stats";
