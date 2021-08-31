@@ -337,6 +337,7 @@
     <None Include="Resources\ContactUs\discord-logo.png" />
     <None Include="Resources\ContactUs\discord.png" />
     <EmbeddedResource Include="Resources\GetScreenResolution.exe" />
+    <Content Include="Console.ico" />
     <Content Include="ico.ico" />
     <EmbeddedResource Include="Resources\ico.ico" />
     <Content Include="Resources\Main Panel Icons\small-about.png" />
@@ -347,6 +348,7 @@
     <None Include="Resources\WalletFormIcons\graph-report.png" />
     <None Include="Resources\WalletFormIcons\code.png" />
     <None Include="Resources\refresh.png" />
+    <None Include="Resources\upload.png" />
     <Content Include="Resources\WalletFormIcons\play.png" />
     <Content Include="Resources\WalletFormIcons\settings--v1.png" />
     <None Include="Resources\WalletFormIcons\statistics.png" />

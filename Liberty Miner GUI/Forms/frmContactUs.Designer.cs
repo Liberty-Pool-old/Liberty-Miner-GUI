@@ -67,10 +67,10 @@
             this.OpenDiscordButton.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OpenDiscordButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.OpenDiscordButton.Image = global::LibertyMinerGUI.Properties.Resources.discord;
-            this.OpenDiscordButton.Location = new System.Drawing.Point(1681, 871);
+            this.OpenDiscordButton.Location = new System.Drawing.Point(733, 88);
             this.OpenDiscordButton.Margin = new System.Windows.Forms.Padding(8);
             this.OpenDiscordButton.Name = "OpenDiscordButton";
-            this.OpenDiscordButton.Size = new System.Drawing.Size(238, 245);
+            this.OpenDiscordButton.Size = new System.Drawing.Size(100, 108);
             this.OpenDiscordButton.TabIndex = 38;
             this.OpenDiscordButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OpenDiscordButton.UseVisualStyleBackColor = false;
@@ -81,7 +81,7 @@
             this.emailLink.AutoSize = true;
             this.emailLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailLink.LinkColor = System.Drawing.Color.LightSeaGreen;
-            this.emailLink.Location = new System.Drawing.Point(57, 123);
+            this.emailLink.Location = new System.Drawing.Point(1377, 39);
             this.emailLink.Name = "emailLink";
             this.emailLink.Size = new System.Drawing.Size(529, 46);
             this.emailLink.TabIndex = 1;
@@ -95,12 +95,13 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(35, 36);
+            this.label3.Location = new System.Drawing.Point(6, 22);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1384, 67);
+            this.label3.Size = new System.Drawing.Size(1398, 134);
             this.label3.TabIndex = 0;
-            this.label3.Text = "If you have any issues or complaints, please refer to the email:\r\n";
+            this.label3.Text = "If you have any issues or complaints, please refer to the email: \r\nor chat with u" +
+    "s through Discord:\r\n";
             // 
             // frmContactUs
             // 
