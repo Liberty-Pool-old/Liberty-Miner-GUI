@@ -57,7 +57,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 32);
             this.label1.TabIndex = 39;
-            this.label1.Text = "v1.2";
+            this.label1.Text = "v1.3";
             // 
             // OpenDiscordButton
             // 
