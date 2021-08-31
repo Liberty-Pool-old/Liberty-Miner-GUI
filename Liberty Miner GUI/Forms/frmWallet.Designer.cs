@@ -63,10 +63,10 @@
             this.payments_refresh_btn = new System.Windows.Forms.Button();
             this.payments_displayconsole = new ConsoleControl.ConsoleControl();
             this.batteryBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.GraphPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.PaymentButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.HashPanel.SuspendLayout();
             this.PaidPanel.SuspendLayout();
             this.PendingPanel.SuspendLayout();
@@ -77,6 +77,7 @@
             this.ConsolePanel.SuspendLayout();
             this.PaymentsPanel.SuspendLayout();
             this.GraphPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CopyWalletButton
@@ -287,20 +288,19 @@
             // PaymentsPanel
             // 
             this.PaymentsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.PaymentsPanel.Controls.Add(this.button2);
+            this.PaymentsPanel.Controls.Add(this.panel1);
             this.PaymentsPanel.Controls.Add(this.workerTxt);
             this.PaymentsPanel.Controls.Add(this.payments_refresh_btn);
             this.PaymentsPanel.Controls.Add(this.payments_displayconsole);
             this.PaymentsPanel.Controls.Add(this.label1);
-            this.PaymentsPanel.Controls.Add(this.batteryBtn);
             resources.ApplyResources(this.PaymentsPanel, "PaymentsPanel");
             this.PaymentsPanel.Name = "PaymentsPanel";
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.button2.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.button2, "button2");
+            this.button2.FlatAppearance.BorderSize = 0;
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.button2.Image = global::LibertyMinerGUI.Properties.Resources.upload1;
             this.button2.Name = "button2";
@@ -336,20 +336,11 @@
             // batteryBtn
             // 
             this.batteryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.batteryBtn.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.batteryBtn, "batteryBtn");
+            this.batteryBtn.FlatAppearance.BorderSize = 0;
             this.batteryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.batteryBtn.Name = "batteryBtn";
             this.batteryBtn.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // GraphPanel
             // 
@@ -375,12 +366,18 @@
             this.PaymentButton.UseVisualStyleBackColor = false;
             this.PaymentButton.Click += new System.EventHandler(this.PaymentButton_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.batteryBtn);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
             // frmWallet
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.PaymentButton);
             this.Controls.Add(this.PaymentsPanel);
             this.Controls.Add(this.ConsolePanel);
@@ -411,6 +408,7 @@
             this.PaymentsPanel.PerformLayout();
             this.GraphPanel.ResumeLayout(false);
             this.GraphPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -449,9 +447,9 @@
         private ConsoleControl.ConsoleControl payments_displayconsole;
         private System.Windows.Forms.Button payments_refresh_btn;
         private System.Windows.Forms.Button PaymentButton;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox workerTxt;
         private System.Windows.Forms.Button batteryBtn;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
